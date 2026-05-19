@@ -1,0 +1,4998 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pháp Luật Đại Cương — Ôn Tập Toàn Diện</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap");
+
+      :root {
+        --bg: #0d1117;
+        --surface: #161b22;
+        --surface2: #1c2128;
+        --border: #30363d;
+        --accent: #58a6ff;
+        --accent2: #3fb950;
+        --accent3: #ff7b72;
+        --accent4: #d2a8ff;
+        --accent5: #ffa657;
+        --accent6: #79c0ff;
+        --text: #e6edf3;
+        --text-muted: #8b949e;
+        --text-dim: #6e7681;
+        --gold: #f0c040;
+        --checked: #3fb950;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Be Vietnam Pro", sans-serif;
+        min-height: 100vh;
+        line-height: 1.7;
+      }
+
+      /* ─── HEADER ─── */
+      header {
+        background: linear-gradient(
+          135deg,
+          #0d1117 0%,
+          #161b22 50%,
+          #1a1f2e 100%
+        );
+        border-bottom: 1px solid var(--border);
+        padding: 2rem 1.5rem 1.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(12px);
+      }
+      .header-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .header-title h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        font-weight: 900;
+        background: linear-gradient(90deg, var(--accent), var(--accent4));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.5px;
+      }
+      .header-title p {
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        margin-top: 2px;
+        font-weight: 400;
+      }
+      .progress-wrap {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .progress-info {
+        text-align: right;
+      }
+      .progress-info span {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+      .progress-info strong {
+        font-size: 1.1rem;
+        color: var(--accent2);
+      }
+      .progress-bar-wrap {
+        width: 160px;
+        height: 6px;
+        background: var(--border);
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        border-radius: 3px;
+        transition: width 0.4s ease;
+        width: 0%;
+      }
+      .btn-reset {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+        padding: 0.4rem 0.9rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.78rem;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .btn-reset:hover {
+        border-color: var(--accent3);
+        color: var(--accent3);
+      }
+
+      /* ─── NAV TABS ─── */
+      .nav-tabs {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border) transparent;
+      }
+      .nav-tabs-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        gap: 0;
+        padding: 0 1.5rem;
+      }
+      .tab-btn {
+        background: none;
+        border: none;
+        border-bottom: 3px solid transparent;
+        color: var(--text-muted);
+        padding: 0.85rem 1.1rem;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.82rem;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .tab-btn:hover {
+        color: var(--text);
+      }
+      .tab-btn.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+      .tab-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      /* ─── MAIN LAYOUT ─── */
+      main {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.5rem;
+      }
+
+      /* ─── SECTION ─── */
+      .section {
+        display: none;
+      }
+      .section.active {
+        display: block;
+      }
+
+      /* ─── CLUSTER (knowledge block group) ─── */
+      .cluster {
+        margin-bottom: 2rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .cluster-header {
+        padding: 1rem 1.4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+        user-select: none;
+        border-bottom: 1px solid transparent;
+        transition: background 0.2s;
+      }
+      .cluster-header:hover {
+        background: var(--surface2);
+      }
+      .cluster-header.open {
+        border-bottom-color: var(--border);
+      }
+      .cluster-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .cluster-title {
+        flex: 1;
+      }
+      .cluster-title h2 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .cluster-title p {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 1px;
+      }
+      .cluster-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-shrink: 0;
+      }
+      .cluster-count {
+        font-size: 0.72rem;
+        color: var(--text-dim);
+        background: var(--bg);
+        padding: 2px 8px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+      .cluster-arrow {
+        color: var(--text-dim);
+        font-size: 0.8rem;
+        transition: transform 0.25s;
+      }
+      .cluster-header.open .cluster-arrow {
+        transform: rotate(90deg);
+      }
+
+      .cluster-body {
+        display: none;
+        padding: 1.2rem 1.4rem;
+      }
+      .cluster-body.open {
+        display: block;
+      }
+
+      /* Related tags */
+      .related-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+      }
+      .related-tag {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        border-radius: 4px;
+        border: 1px solid;
+        cursor: pointer;
+        transition: opacity 0.2s;
+      }
+      .related-tag:hover {
+        opacity: 0.7;
+      }
+      .related-label {
+        font-size: 0.7rem;
+        color: var(--text-dim);
+        align-self: center;
+        margin-right: 4px;
+        flex-shrink: 0;
+      }
+
+      /* ─── CARD ─── */
+      .card {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        margin-bottom: 0.8rem;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .card:hover {
+        border-color: #444c56;
+      }
+      .card.checked {
+        border-color: var(--checked);
+        background: #1a2b1e;
+      }
+
+      .card-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.9rem 1rem;
+        cursor: pointer;
+      }
+      .card-check {
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--border);
+        border-radius: 4px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2px;
+        transition: all 0.2s;
+        cursor: pointer;
+        background: transparent;
+      }
+      .card.checked .card-check {
+        background: var(--checked);
+        border-color: var(--checked);
+        color: white;
+      }
+      .card-check svg {
+        display: none;
+      }
+      .card.checked .card-check svg {
+        display: block;
+      }
+
+      .card-title {
+        flex: 1;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.4;
+      }
+      .card.checked .card-title {
+        color: var(--text-muted);
+        text-decoration: line-through;
+      }
+
+      .card-tag {
+        font-size: 0.68rem;
+        padding: 1px 6px;
+        border-radius: 3px;
+        font-weight: 600;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .card-expand {
+        background: none;
+        border: none;
+        color: var(--text-dim);
+        cursor: pointer;
+        padding: 0;
+        font-size: 0.75rem;
+        transition: color 0.2s;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .card-expand:hover {
+        color: var(--accent);
+      }
+
+      .card-detail {
+        display: none;
+        padding: 0 1rem 1rem 2.75rem;
+        font-size: 0.83rem;
+        color: var(--text-muted);
+        line-height: 1.8;
+        border-top: 1px solid var(--border);
+        padding-top: 0.8rem;
+      }
+      .card-detail.open {
+        display: block;
+      }
+      .card-detail ul {
+        padding-left: 1.2rem;
+        margin-top: 0.3rem;
+      }
+      .card-detail li {
+        margin-bottom: 0.25rem;
+      }
+      .card-detail strong {
+        color: var(--accent);
+      }
+      .card-detail .note {
+        background: #1a2535;
+        border-left: 3px solid var(--accent);
+        padding: 0.5rem 0.75rem;
+        border-radius: 0 6px 6px 0;
+        margin-top: 0.6rem;
+        font-size: 0.8rem;
+      }
+      .card-detail .warn {
+        background: #2b1e1e;
+        border-left: 3px solid var(--accent3);
+        padding: 0.5rem 0.75rem;
+        border-radius: 0 6px 6px 0;
+        margin-top: 0.6rem;
+        font-size: 0.8rem;
+      }
+      .card-detail .tip {
+        background: #1e2b1e;
+        border-left: 3px solid var(--accent2);
+        padding: 0.5rem 0.75rem;
+        border-radius: 0 6px 6px 0;
+        margin-top: 0.6rem;
+        font-size: 0.8rem;
+      }
+      .card-detail table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 0.6rem;
+        font-size: 0.78rem;
+      }
+      .card-detail th {
+        background: var(--bg);
+        color: var(--accent);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        border: 1px solid var(--border);
+        font-weight: 600;
+      }
+      .card-detail td {
+        padding: 0.35rem 0.6rem;
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+      }
+      .card-detail tr:nth-child(even) td {
+        background: #0d1117;
+      }
+
+      /* ─── QUIZ SECTION ─── */
+      .quiz-intro {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .quiz-intro h2 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .quiz-intro p {
+        font-size: 0.83rem;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+      .btn-quiz {
+        background: var(--accent);
+        color: #0d1117;
+        border: none;
+        padding: 0.6rem 1.4rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        font-weight: 700;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .btn-quiz:hover {
+        background: var(--accent6);
+        transform: translateY(-1px);
+      }
+
+      .quiz-container {
+        display: none;
+      }
+      .quiz-container.active {
+        display: block;
+      }
+
+      .quiz-q {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .quiz-num {
+        font-size: 0.72rem;
+        color: var(--accent);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.6rem;
+      }
+      .quiz-question {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+      .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .quiz-opt {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        cursor: pointer;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        transition: all 0.2s;
+        text-align: left;
+        font-family: inherit;
+      }
+      .quiz-opt:hover:not(:disabled) {
+        border-color: var(--accent);
+        color: var(--text);
+        background: #1a2535;
+      }
+      .quiz-opt.correct {
+        border-color: var(--accent2);
+        background: #1a2b1e;
+        color: var(--accent2);
+      }
+      .quiz-opt.wrong {
+        border-color: var(--accent3);
+        background: #2b1e1e;
+        color: var(--accent3);
+      }
+      .quiz-opt:disabled {
+        cursor: default;
+      }
+
+      .quiz-explain {
+        display: none;
+        margin-top: 0.8rem;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        background: #161b22;
+        border-left: 3px solid var(--accent4);
+        padding: 0.6rem 0.9rem;
+        border-radius: 0 6px 6px 0;
+        line-height: 1.7;
+      }
+      .quiz-explain.show {
+        display: block;
+      }
+
+      .quiz-score-wrap {
+        display: none;
+        text-align: center;
+        padding: 2rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+      .quiz-score-wrap.show {
+        display: block;
+      }
+      .score-num {
+        font-family: "Playfair Display", serif;
+        font-size: 4rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, var(--accent2), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .score-label {
+        color: var(--text-muted);
+        margin-top: 0.3rem;
+        font-size: 0.9rem;
+      }
+
+      /* ─── MIND MAP ─── */
+      .mindmap-wrap {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        overflow-x: auto;
+      }
+      .mindmap-title {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 1.2rem;
+      }
+      .mmap {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .mmap-row {
+        display: flex;
+        align-items: stretch;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .mmap-center {
+        background: linear-gradient(135deg, #1a2535, #1c2128);
+        border: 2px solid var(--accent);
+        border-radius: 10px;
+        padding: 0.8rem 1.2rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--accent);
+        text-align: center;
+        min-width: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mmap-arrow {
+        display: flex;
+        align-items: center;
+        color: var(--text-dim);
+        font-size: 1.2rem;
+      }
+      .mmap-children {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        flex: 1;
+      }
+      .mmap-child {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .mmap-child:hover {
+        border-color: var(--accent);
+        color: var(--text);
+      }
+      .mmap-child span {
+        font-weight: 600;
+        margin-right: 6px;
+      }
+
+      /* Search */
+      .search-wrap {
+        position: relative;
+        margin-bottom: 1.2rem;
+      }
+      .search-input {
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.65rem 1rem 0.65rem 2.5rem;
+        color: var(--text);
+        font-family: inherit;
+        font-size: 0.88rem;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .search-input:focus {
+        border-color: var(--accent);
+      }
+      .search-icon {
+        position: absolute;
+        left: 0.9rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-dim);
+        pointer-events: none;
+      }
+
+      /* ─── COLORS PER SECTION ─── */
+      [data-color="blue"] .cluster-icon {
+        background: #1a2535;
+        color: var(--accent);
+      }
+      [data-color="green"] .cluster-icon {
+        background: #1e2b1e;
+        color: var(--accent2);
+      }
+      [data-color="red"] .cluster-icon {
+        background: #2b1e1e;
+        color: var(--accent3);
+      }
+      [data-color="purple"] .cluster-icon {
+        background: #25182b;
+        color: var(--accent4);
+      }
+      [data-color="orange"] .cluster-icon {
+        background: #2b2018;
+        color: var(--accent5);
+      }
+      [data-color="sky"] .cluster-icon {
+        background: #18232b;
+        color: var(--accent6);
+      }
+
+      .tag-blue {
+        background: #1a2535;
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+      .tag-green {
+        background: #1e2b1e;
+        color: var(--accent2);
+        border-color: var(--accent2);
+      }
+      .tag-red {
+        background: #2b1e1e;
+        color: var(--accent3);
+        border-color: var(--accent3);
+      }
+      .tag-purple {
+        background: #25182b;
+        color: var(--accent4);
+        border-color: var(--accent4);
+      }
+      .tag-orange {
+        background: #2b2018;
+        color: var(--accent5);
+        border-color: var(--accent5);
+      }
+      .tag-sky {
+        background: #18232b;
+        color: var(--accent6);
+        border-color: var(--accent6);
+      }
+      .tag-gold {
+        background: #2b2410;
+        color: var(--gold);
+        border-color: var(--gold);
+      }
+
+      /* Filter chips */
+      .filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.2rem;
+        align-items: center;
+      }
+      .filter-label {
+        font-size: 0.75rem;
+        color: var(--text-dim);
+      }
+      .chip {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--text-muted);
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.73rem;
+        cursor: pointer;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .chip.active {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: #1a2535;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        .nav-tabs-inner {
+          gap: 0;
+        }
+        .tab-btn {
+          padding: 0.75rem 0.7rem;
+          font-size: 0.75rem;
+        }
+        main {
+          padding: 1rem;
+        }
+        .cluster-body {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="header-inner">
+        <div class="header-title">
+          <h1>📚 Pháp Luật Đại Cương</h1>
+          <p>Ôn tập toàn diện · 9 chương · Liên kết kiến thức</p>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-info">
+            <span>Tiến độ ôn tập</span>
+            <strong id="prog-text">0 / 0</strong>
+          </div>
+          <div>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" id="prog-bar"></div>
+            </div>
+          </div>
+          <button class="btn-reset" onclick="resetAll()">↺ Reset</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- NAV TABS -->
+    <nav class="nav-tabs">
+      <div class="nav-tabs-inner">
+        <button class="tab-btn active" onclick="showSection('overview')">
+          <span class="tab-dot" style="background: #58a6ff"></span>Tổng quan
+        </button>
+        <button class="tab-btn" onclick="showSection('ch1')">
+          <span class="tab-dot" style="background: #79c0ff"></span>C1: Nhà nước
+        </button>
+        <button class="tab-btn" onclick="showSection('ch2')">
+          <span class="tab-dot" style="background: #3fb950"></span>C2: Quy phạm
+        </button>
+        <button class="tab-btn" onclick="showSection('ch3')">
+          <span class="tab-dot" style="background: #ff7b72"></span>C3: Vi phạm
+        </button>
+        <button class="tab-btn" onclick="showSection('ch4')">
+          <span class="tab-dot" style="background: #d2a8ff"></span>C4: Hiến pháp
+        </button>
+        <button class="tab-btn" onclick="showSection('ch5')">
+          <span class="tab-dot" style="background: #ffa657"></span>C5: Hành
+          chính
+        </button>
+        <button class="tab-btn" onclick="showSection('ch6')">
+          <span class="tab-dot" style="background: #58a6ff"></span>C6: Dân sự
+        </button>
+        <button class="tab-btn" onclick="showSection('ch7')">
+          <span class="tab-dot" style="background: #ff7b72"></span>C7: Hình sự
+        </button>
+        <button class="tab-btn" onclick="showSection('ch8')">
+          <span class="tab-dot" style="background: #3fb950"></span>C8: Lao động
+        </button>
+        <button class="tab-btn" onclick="showSection('ch9')">
+          <span class="tab-dot" style="background: #ffa657"></span>C9: Kinh
+          doanh
+        </button>
+        <button class="tab-btn" onclick="showSection('quiz')">
+          <span class="tab-dot" style="background: #d2a8ff"></span>🎯 Trắc
+          nghiệm
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ══════════════════════════════════════════════
+     OVERVIEW
+══════════════════════════════════════════════ -->
+      <div id="section-overview" class="section active">
+        <div class="mindmap-wrap">
+          <div class="mindmap-title">
+            🗺️ Bản đồ kiến thức — Mối liên hệ giữa các chương
+          </div>
+          <div class="mmap">
+            <div class="mmap-row">
+              <div class="mmap-center">
+                NHÀ NƯỚC &<br />PHÁP LUẬT<br /><small>(C1)</small>
+              </div>
+              <div class="mmap-arrow">→</div>
+              <div class="mmap-children">
+                <div class="mmap-child" onclick="showSection('ch2')">
+                  <span>C2</span>Quy phạm PL • Văn bản QPPL • Quan hệ PL • Pháp
+                  chế XHCN
+                </div>
+                <div class="mmap-child" onclick="showSection('ch3')">
+                  <span>C3</span>Vi phạm PL • Trách nhiệm pháp lý (từ C1 → cơ sở
+                  lý luận)
+                </div>
+                <div class="mmap-child" onclick="showSection('ch4')">
+                  <span>C4</span>Luật Hiến pháp (tổ chức Nhà nước cụ thể)
+                </div>
+              </div>
+            </div>
+            <div class="mmap-row">
+              <div class="mmap-center">LUẬT HIẾN PHÁP<br />(C4)</div>
+              <div class="mmap-arrow">→</div>
+              <div class="mmap-children">
+                <div class="mmap-child" onclick="showSection('ch5')">
+                  <span>C5</span>Luật Hành chính (cơ quan hành chính, cán bộ CC)
+                </div>
+                <div class="mmap-child" onclick="showSection('ch6')">
+                  <span>C6</span>Luật Dân sự (quyền công dân về tài sản, nhân
+                  thân)
+                </div>
+                <div class="mmap-child" onclick="showSection('ch7')">
+                  <span>C7</span>Luật Hình sự (bảo vệ trật tự nhà nước)
+                </div>
+              </div>
+            </div>
+            <div class="mmap-row">
+              <div class="mmap-center">VI PHẠM & TRÁCH NHIỆM<br />(C3)</div>
+              <div class="mmap-arrow">→</div>
+              <div class="mmap-children">
+                <div class="mmap-child">
+                  <span>→</span>Vi phạm hình sự → Trách nhiệm HS (C7)
+                </div>
+                <div class="mmap-child">
+                  <span>→</span>Vi phạm hành chính → Trách nhiệm HC (C5)
+                </div>
+                <div class="mmap-child">
+                  <span>→</span>Vi phạm dân sự → Trách nhiệm DS (C6)
+                </div>
+                <div class="mmap-child">
+                  <span>→</span>Vi phạm kỷ luật → Trách nhiệm KL (C8 Lao động)
+                </div>
+              </div>
+            </div>
+            <div class="mmap-row">
+              <div class="mmap-center">LUẬT LAO ĐỘNG<br />(C8)</div>
+              <div class="mmap-arrow">→</div>
+              <div class="mmap-children">
+                <div class="mmap-child">
+                  <span>→</span>HĐLĐ liên quan đến Hợp đồng DS (C6)
+                </div>
+                <div class="mmap-child">
+                  <span>→</span>Vi phạm KL lao động → Trách nhiệm KL (C3)
+                </div>
+                <div class="mmap-child" onclick="showSection('ch9')">
+                  <span>→</span>Lao động trong DN liên quan đến Luật Kinh doanh
+                  (C9)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick cards overview -->
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+          "
+        >
+          <div class="cluster" data-color="sky">
+            <div class="cluster-header open" onclick="showSection('ch1')">
+              <div class="cluster-icon">⚖️</div>
+              <div class="cluster-title">
+                <h2>Chương 1 — Nhà nước & Pháp luật</h2>
+                <p>Nguồn gốc · Bản chất · Kiểu · Hình thức · Chức năng</p>
+              </div>
+            </div>
+          </div>
+          <div class="cluster" data-color="green">
+            <div class="cluster-header open" onclick="showSection('ch2')">
+              <div class="cluster-icon">📜</div>
+              <div class="cluster-title">
+                <h2>Chương 2 — Quy phạm & Quan hệ PL</h2>
+                <p>QPPL · Văn bản QPPL · Quan hệ PL · Pháp chế</p>
+              </div>
+            </div>
+          </div>
+          <div class="cluster" data-color="red">
+            <div class="cluster-header open" onclick="showSection('ch3')">
+              <div class="cluster-icon">🚨</div>
+              <div class="cluster-title">
+                <h2>Chương 3 — Vi phạm & Trách nhiệm</h2>
+                <p>Khái niệm · Cấu thành · Phân loại · Các loại TNPL</p>
+              </div>
+            </div>
+          </div>
+          <div class="cluster" data-color="purple">
+            <div class="cluster-header open" onclick="showSection('ch4')">
+              <div class="cluster-icon">🏛️</div>
+              <div class="cluster-title">
+                <h2>Chương 4 — Luật Hiến pháp</h2>
+                <p>Chế độ CT · Quyền công dân · Bộ máy NN</p>
+              </div>
+            </div>
+          </div>
+          <div class="cluster" data-color="orange">
+            <div class="cluster-header open" onclick="showSection('ch5')">
+              <div class="cluster-icon">🏢</div>
+              <div class="cluster-title">
+                <h2>Chương 5 — Luật Hành chính</h2>
+                <p>CQHCNN · Cán bộ CC · Vi phạm HC · Tố tụng HC</p>
+              </div>
+            </div>
+          </div>
+          <div class="cluster" data-color="blue">
+            <div class="cluster-header open" onclick="showSection('ch6')">
+              <div class="cluster-icon">👤</div>
+              <div class="cluster-title">
+                <h2>Chương 6 — Luật Dân sự</h2>
+                <p>Cá nhân · Tài sản · Thừa kế · Hợp đồng DS</p>
+              </div>
+            </div>
+          </div>
+          <div class="cluster" data-color="red">
+            <div class="cluster-header open" onclick="showSection('ch7')">
+              <div class="cluster-icon">⛓️</div>
+              <div class="cluster-title">
+                <h2>Chương 7 — Luật Hình sự</h2>
+                <p>Tội phạm · TNHS · Hình phạt · Tố tụng HS</p>
+              </div>
+            </div>
+          </div>
+          <div class="cluster" data-color="green">
+            <div class="cluster-header open" onclick="showSection('ch8')">
+              <div class="cluster-icon">👷</div>
+              <div class="cluster-title">
+                <h2>Chương 8 — Luật Lao động</h2>
+                <p>HĐLĐ · Tiền lương · Kỷ luật · BHXH</p>
+              </div>
+            </div>
+          </div>
+          <div class="cluster" data-color="orange">
+            <div class="cluster-header open" onclick="showSection('ch9')">
+              <div class="cluster-icon">🏭</div>
+              <div class="cluster-title">
+                <h2>Chương 9 — Luật Kinh doanh</h2>
+                <p>Loại hình DN · Phá sản · Tranh chấp KD</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     CHAPTER 1
+══════════════════════════════════════════════ -->
+      <div id="section-ch1" class="section">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input
+            class="search-input"
+            placeholder="Tìm kiếm trong chương 1..."
+            oninput="filterCards(this, 'ch1')"
+          />
+        </div>
+
+        <!-- CLUSTER: Nguồn gốc & Bản chất NN -->
+        <div class="cluster" data-color="sky">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🌱</div>
+            <div class="cluster-title">
+              <h2>Nguồn gốc & Bản chất Nhà nước</h2>
+              <p>
+                Liên quan: C2 (Pháp luật xuất hiện cùng NN) · C3 (Vi phạm PL →
+                NN phản ứng)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">7 nội dung</span>
+              <span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="related-tags">
+              <span class="related-label">🔗 Liên quan:</span>
+              <span class="related-tag tag-green" onclick="showSection('ch2')"
+                >C2: PL cùng nguồn gốc với NN</span
+              >
+              <span class="related-tag tag-red" onclick="showSection('ch3')"
+                >C3: NN phản ứng với VPPL</span
+              >
+              <span class="related-tag tag-purple" onclick="showSection('ch4')"
+                >C4: NN VN cụ thể</span
+              >
+            </div>
+
+            <div class="card" id="c1-1">
+              <div class="card-header" onclick="toggleCard('c1-1')">
+                <div class="card-check" onclick="checkCard(event, 'c1-1')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Nhà nước là gì? Định nghĩa theo học thuyết Mác–Lênin
+                </div>
+                <span class="card-tag tag-sky">Định nghĩa</span>
+                <button class="card-expand" onclick="expandCard(event, 'c1-1')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-1">
+                <strong>Định nghĩa:</strong> Nhà nước là tổ chức đặc biệt của
+                quyền lực chính trị, bộ máy chuyên làm nhiệm vụ cưỡng chế và
+                thực hiện các chức năng quản lý đặc biệt nhằm duy trì trật tự xã
+                hội, bảo vệ địa vị của giai cấp thống trị.
+                <div class="note">
+                  💡 NN không phải hiện tượng vĩnh cửu — có quá trình phát sinh,
+                  phát triển, tiêu vong.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c1-2">
+              <div class="card-header" onclick="toggleCard('c1-2')">
+                <div class="card-check" onclick="checkCard(event, 'c1-2')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  3 lần phân công lao động xã hội dẫn đến NN ra đời
+                </div>
+                <span class="card-tag tag-sky">Lịch sử</span>
+                <button class="card-expand" onclick="expandCard(event, 'c1-2')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-2">
+                <ul>
+                  <li><strong>1.</strong> Chăn nuôi tách khỏi trồng trọt</li>
+                  <li>
+                    <strong>2.</strong> Thủ công nghiệp tách khỏi nông nghiệp
+                  </li>
+                  <li>
+                    <strong>3.</strong> Buôn bán phát triển → Thương nghiệp ra
+                    đời
+                  </li>
+                </ul>
+                <div class="tip">
+                  ✅ Kết quả: Sản phẩm dư thừa → Chế độ tư hữu → Phân hóa giai
+                  cấp → NN xuất hiện.
+                </div>
+                <div class="warn">
+                  ⚠️ Tiền đề kinh tế: Chế độ tư hữu. Tiền đề xã hội: Phân hóa
+                  giai cấp.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c1-3">
+              <div class="card-header" onclick="toggleCard('c1-3')">
+                <div class="card-check" onclick="checkCard(event, 'c1-3')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">5 dấu hiệu đặc trưng của Nhà nước</div>
+                <span class="card-tag tag-sky">Đặc trưng</span>
+                <button class="card-expand" onclick="expandCard(event, 'c1-3')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-3">
+                <ul>
+                  <li>
+                    <strong>1.</strong> Tổ chức quyền lực chính trị công cộng
+                    đặc biệt (bộ máy cưỡng chế riêng)
+                  </li>
+                  <li>
+                    <strong>2.</strong> Quản lý dân cư theo lãnh thổ (không theo
+                    huyết thống)
+                  </li>
+                  <li>
+                    <strong>3.</strong> Có chủ quyền quốc gia (đối nội + đối
+                    ngoại)
+                  </li>
+                  <li>
+                    <strong>4.</strong> Ban hành pháp luật và bắt buộc thực hiện
+                  </li>
+                  <li><strong>5.</strong> Quy định và thu thuế bắt buộc</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c1-4">
+              <div class="card-header" onclick="toggleCard('c1-4')">
+                <div class="card-check" onclick="checkCard(event, 'c1-4')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Bản chất NN: Tính giai cấp & Vai trò xã hội
+                </div>
+                <span class="card-tag tag-sky">Bản chất</span>
+                <button class="card-expand" onclick="expandCard(event, 'c1-4')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-4">
+                <strong>Tính giai cấp:</strong> NN là bộ máy trấn áp của giai
+                cấp này với giai cấp khác. Thể hiện ở 3 mặt: kinh tế, chính trị,
+                tư tưởng.<br /><br />
+                <strong>Vai trò xã hội:</strong> NN giải quyết các công việc
+                chung của xã hội (trường học, bệnh viện, phúc lợi...).
+                <div class="warn">
+                  ⚠️ Không được chỉ nhấn mạnh 1 chiều bản chất giai cấp mà bỏ
+                  qua vai trò xã hội!
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c1-5">
+              <div class="card-header" onclick="toggleCard('c1-5')">
+                <div class="card-check" onclick="checkCard(event, 'c1-5')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">4 kiểu Nhà nước trong lịch sử</div>
+                <span class="card-tag tag-sky">Phân loại</span>
+                <button class="card-expand" onclick="expandCard(event, 'c1-5')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-5">
+                <table>
+                  <tr>
+                    <th>Kiểu NN</th>
+                    <th>Cơ sở KT</th>
+                    <th>Giai cấp thống trị</th>
+                  </tr>
+                  <tr>
+                    <td>Chủ nô</td>
+                    <td>Chủ nô sở hữu TL SX + nô lệ</td>
+                    <td>Chủ nô</td>
+                  </tr>
+                  <tr>
+                    <td>Phong kiến</td>
+                    <td>Địa chủ sở hữu ruộng đất</td>
+                    <td>Địa chủ phong kiến</td>
+                  </tr>
+                  <tr>
+                    <td>Tư sản</td>
+                    <td>Tư bản → bóc lột giá trị thặng dư</td>
+                    <td>Giai cấp tư sản</td>
+                  </tr>
+                  <tr>
+                    <td>XHCN</td>
+                    <td>Công hữu TLSX</td>
+                    <td>Giai cấp công nhân + nhân dân</td>
+                  </tr>
+                </table>
+                <div class="note">
+                  💡 NN chủ nô, phong kiến, tư sản = kiểu NN bóc lột. NN XHCN =
+                  kiểu NN cuối cùng.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c1-6">
+              <div class="card-header" onclick="toggleCard('c1-6')">
+                <div class="card-check" onclick="checkCard(event, 'c1-6')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Hình thức Nhà nước: Chính thể & Cấu trúc
+                </div>
+                <span class="card-tag tag-sky">Hình thức</span>
+                <button class="card-expand" onclick="expandCard(event, 'c1-6')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-6">
+                <strong>Hình thức chính thể:</strong>
+                <ul>
+                  <li>
+                    <strong>Quân chủ:</strong> Quyền lực tập trung vào Vua/Hoàng
+                    đế (thừa kế)
+                  </li>
+                  <li>
+                    <strong>Cộng hòa:</strong> Quyền lực do cơ quan đại diện do
+                    dân bầu
+                  </li>
+                </ul>
+                <strong>Hình thức cấu trúc:</strong>
+                <ul>
+                  <li>
+                    <strong>Đơn nhất:</strong> 1 hệ thống PL (VN, Lào, Trung
+                    Quốc)
+                  </li>
+                  <li>
+                    <strong>Liên bang:</strong> Nhiều NN hợp lại, 2 hệ thống PL
+                    (Mỹ, Malaysia)
+                  </li>
+                  <li>
+                    <strong>Liên minh:</strong> Liên kết tạm thời (giải tán sau
+                    khi hoàn thành mục tiêu)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c1-7">
+              <div class="card-header" onclick="toggleCard('c1-7')">
+                <div class="card-check" onclick="checkCard(event, 'c1-7')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Chức năng Nhà nước: Đối nội & Đối ngoại
+                </div>
+                <span class="card-tag tag-sky">Chức năng</span>
+                <button class="card-expand" onclick="expandCard(event, 'c1-7')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-7">
+                <strong>Chức năng đối nội:</strong>
+                <ul>
+                  <li>Tổ chức và quản lý nền kinh tế</li>
+                  <li>Tổ chức và quản lý văn hóa, GD, KH-CN</li>
+                  <li>Giữ vững ANCT, trấn áp phản kháng</li>
+                  <li>Bảo vệ trật tự PL và quyền lợi giai cấp cầm quyền</li>
+                </ul>
+                <strong>Chức năng đối ngoại:</strong>
+                <ul>
+                  <li>Phòng thủ đất nước, chống xâm lược</li>
+                  <li>Thiết lập quan hệ ngoại giao với các quốc gia</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLUSTER: NN VN & NN Pháp quyền -->
+        <div class="cluster" data-color="blue">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🇻🇳</div>
+            <div class="cluster-title">
+              <h2>Nhà nước CHXHCN Việt Nam & Nhà nước Pháp quyền</h2>
+              <p>
+                Liên quan: C4 (Hiến pháp 2013 quy định) · C5 (Hành chính VN)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span>
+              <span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="related-tags">
+              <span class="related-label">🔗 Liên quan:</span>
+              <span class="related-tag tag-purple" onclick="showSection('ch4')"
+                >C4: HP 2013 Điều 2</span
+              >
+              <span class="related-tag tag-orange" onclick="showSection('ch5')"
+                >C5: Hành chính VN</span
+              >
+            </div>
+
+            <div class="card" id="c1-8">
+              <div class="card-header" onclick="toggleCard('c1-8')">
+                <div class="card-check" onclick="checkCard(event, 'c1-8')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Bản chất Nhà nước VN theo Hiến pháp 2013
+                </div>
+                <span class="card-tag tag-blue">HP 2013</span>
+                <button class="card-expand" onclick="expandCard(event, 'c1-8')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-8">
+                <strong>Điều 2 HP 2013:</strong> NN pháp quyền XHCN của nhân
+                dân, do nhân dân, vì nhân dân. Tất cả quyền lực thuộc về nhân
+                dân.<br /><br />
+                <strong>4 đặc trưng bản chất:</strong>
+                <ul>
+                  <li>Nhân dân là chủ thể tối cao của quyền lực</li>
+                  <li>NN của tất cả các dân tộc trên lãnh thổ VN</li>
+                  <li>Bình đẳng trong quan hệ NN – công dân</li>
+                  <li>Tính chất dân chủ rộng rãi trong lĩnh vực KT-XH</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c1-9">
+              <div class="card-header" onclick="toggleCard('c1-9')">
+                <div class="card-check" onclick="checkCard(event, 'c1-9')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Hệ thống chính trị VN</div>
+                <span class="card-tag tag-blue">Hệ thống CT</span>
+                <button class="card-expand" onclick="expandCard(event, 'c1-9')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-9">
+                <strong>Gồm:</strong> Đảng CSVN · Nhà nước CHXHCNVN · MTTQ VN và
+                các tổ chức CT-XH (TLĐ LĐ VN, Đoàn TN CSHCM, Hội LH PNV, Hội ND
+                VN, Hội CCB VN).
+                <div class="note">
+                  💡 Đảng CSVN là lực lượng lãnh đạo duy nhất. NN là thiết chế
+                  TRUNG TÂM trong hệ thống.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c1-10">
+              <div class="card-header" onclick="toggleCard('c1-10')">
+                <div class="card-check" onclick="checkCard(event, 'c1-10')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  4 đặc điểm cơ bản của Nhà nước Pháp quyền
+                </div>
+                <span class="card-tag tag-blue">NN PQ</span>
+                <button
+                  class="card-expand"
+                  onclick="expandCard(event, 'c1-10')"
+                >
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-10">
+                <ul>
+                  <li>
+                    <strong>1.</strong> Hệ thống PL hoàn chỉnh, đạo luật có vai
+                    trò tối thượng
+                  </li>
+                  <li><strong>2.</strong> Mọi công dân bình đẳng trước PL</li>
+                  <li>
+                    <strong>3.</strong> Quyền tự do, dân chủ được PL đảm bảo và
+                    bảo vệ
+                  </li>
+                  <li>
+                    <strong>4.</strong> Quyền lực NN (lập pháp, hành pháp, tư
+                    pháp) được phân định rõ ràng
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLUSTER: Pháp luật -->
+        <div class="cluster" data-color="green">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">📋</div>
+            <div class="cluster-title">
+              <h2>Những vấn đề cơ bản về Pháp luật</h2>
+              <p>
+                Liên quan: C2 (Quy phạm PL) · C3 (Vi phạm PL) · tất cả các ngành
+                luật C4–C9
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">5 nội dung</span>
+              <span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c1-11">
+              <div class="card-header" onclick="toggleCard('c1-11')">
+                <div class="card-check" onclick="checkCard(event, 'c1-11')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Định nghĩa Pháp luật và 3 thuộc tính
+                </div>
+                <span class="card-tag tag-green">Định nghĩa</span>
+                <button
+                  class="card-expand"
+                  onclick="expandCard(event, 'c1-11')"
+                >
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-11">
+                <strong>Định nghĩa:</strong> Hệ thống quy phạm (quy tắc xử sự)
+                có tính bắt buộc chung, điều chỉnh QHXH do NN ban hành hoặc thừa
+                nhận, thể hiện ý chí NN và được NN bảo đảm thực hiện.
+                <br /><br /><strong>3 thuộc tính:</strong>
+                <ul>
+                  <li>
+                    <strong>Tính quy phạm phổ biến:</strong> Bắt buộc tất cả mọi
+                    người
+                  </li>
+                  <li>
+                    <strong>Tính xác định chặt chẽ về hình thức:</strong> Nội
+                    dung rõ ràng, chính xác
+                  </li>
+                  <li>
+                    <strong>Tính được đảm bảo bằng NN:</strong> Có cưỡng chế nếu
+                    cần
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c1-12">
+              <div class="card-header" onclick="toggleCard('c1-12')">
+                <div class="card-check" onclick="checkCard(event, 'c1-12')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">3 chức năng của Pháp luật</div>
+                <span class="card-tag tag-green">Chức năng</span>
+                <button
+                  class="card-expand"
+                  onclick="expandCard(event, 'c1-12')"
+                >
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-12">
+                <ul>
+                  <li>
+                    <strong>Điều chỉnh:</strong> Tác động trực tiếp tới QHXH,
+                    tạo hành lang pháp lý
+                  </li>
+                  <li>
+                    <strong>Bảo vệ:</strong> Bảo vệ QHXH trước vi phạm bằng chế
+                    tài
+                  </li>
+                  <li>
+                    <strong>Giáo dục:</strong> Tác động vào ý thức con người,
+                    hướng hành vi
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c1-13">
+              <div class="card-header" onclick="toggleCard('c1-13')">
+                <div class="card-check" onclick="checkCard(event, 'c1-13')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">4 kiểu Pháp luật trong lịch sử</div>
+                <span class="card-tag tag-green">Kiểu PL</span>
+                <button
+                  class="card-expand"
+                  onclick="expandCard(event, 'c1-13')"
+                >
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c1-13">
+                <table>
+                  <tr>
+                    <th>Kiểu PL</th>
+                    <th>Đặc điểm nổi bật</th>
+                  </tr>
+                  <tr>
+                    <td>Chủ nô</td>
+                    <td>
+                      Bảo vệ tư hữu chủ nô, nô lệ = "công cụ biết nói", dùng tập
+                      quán pháp
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Phong kiến</td>
+                    <td>
+                      "Pháp luật quả đấm", bạo lực là phương tiện giải quyết
+                      tranh chấp
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tư sản</td>
+                    <td>
+                      Lần đầu: khái niệm "công dân", quyền tự do, nguyên tắc
+                      pháp chế, Hiến pháp
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>XHCN</td>
+                    <td>
+                      Phủ nhận bóc lột, bình đẳng thực sự, quan hệ mới giữa
+                      người với người
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     CHAPTER 2
+══════════════════════════════════════════════ -->
+      <div id="section-ch2" class="section">
+        <div class="cluster" data-color="green">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">📌</div>
+            <div class="cluster-title">
+              <h2>Quy phạm Pháp luật</h2>
+              <p>
+                Liên quan: C3 (Vi phạm = không tuân thủ QPPL) · C1 (PL = hệ
+                thống QPPL)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">3 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="related-tags">
+              <span class="related-label">🔗 Liên quan:</span>
+              <span class="related-tag tag-red" onclick="showSection('ch3')"
+                >C3: Vi phạm = hành vi trái QPPL</span
+              >
+              <span class="related-tag tag-sky" onclick="showSection('ch1')"
+                >C1: PL = tổng hợp QPPL</span
+              >
+            </div>
+
+            <div class="card" id="c2-1">
+              <div class="card-header" onclick="toggleCard('c2-1')">
+                <div class="card-check" onclick="checkCard(event, 'c2-1')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Định nghĩa & Đặc điểm Quy phạm Pháp luật (QPPL)
+                </div>
+                <span class="card-tag tag-green">Định nghĩa</span>
+                <button class="card-expand" onclick="expandCard(event, 'c2-1')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c2-1">
+                <strong>Định nghĩa:</strong> Quy tắc xử sự có tính khuôn mẫu bắt
+                buộc, do NN ban hành hoặc thừa nhận, được NN bảo đảm thực hiện,
+                nhằm điều chỉnh QHXH. <br /><br /><strong>4 đặc điểm:</strong>
+                <ul>
+                  <li>Thể hiện ý chí NN</li>
+                  <li>Mang tính bắt buộc chung</li>
+                  <li>Do NN ban hành hoặc thừa nhận</li>
+                  <li>Được NN bảo đảm thực hiện</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c2-2">
+              <div class="card-header" onclick="toggleCard('c2-2')">
+                <div class="card-check" onclick="checkCard(event, 'c2-2')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Cấu trúc QPPL: Giả định – Quy định – Chế tài
+                </div>
+                <span class="card-tag tag-green">Cấu trúc</span>
+                <button class="card-expand" onclick="expandCard(event, 'c2-2')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c2-2">
+                <table>
+                  <tr>
+                    <th>Bộ phận</th>
+                    <th>Nội dung</th>
+                    <th>Câu hỏi</th>
+                  </tr>
+                  <tr>
+                    <td><strong>Giả định</strong></td>
+                    <td>Địa điểm, thời gian, chủ thể, hoàn cảnh áp dụng</td>
+                    <td>Chủ thể nào? Khi nào? Điều kiện nào?</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Quy định</strong></td>
+                    <td>Quy tắc xử sự (yếu tố TRUNG TÂM)</td>
+                    <td>Phải làm gì? Được làm gì?</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Chế tài</strong></td>
+                    <td>Biện pháp tác động khi không tuân quy định</td>
+                    <td>Hậu quả bất lợi nếu vi phạm</td>
+                  </tr>
+                </table>
+                <div class="note">
+                  💡 Ví dụ: "Người nào cố ý phát tán chương trình tin học..."
+                  (Giả định) → "thì bị phạt tù..." (Chế tài)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="sky">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">📄</div>
+            <div class="cluster-title">
+              <h2>Văn bản Quy phạm Pháp luật (VBQPPL)</h2>
+              <p>
+                Liên quan: C4 (Hiến pháp — VBQPPL cao nhất) · C5 (Nghị định,
+                Thông tư)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="related-tags">
+              <span class="related-label">🔗 Liên quan:</span>
+              <span class="related-tag tag-purple" onclick="showSection('ch4')"
+                >C4: Hiến pháp là VBQPPL cao nhất</span
+              >
+              <span class="related-tag tag-orange" onclick="showSection('ch5')"
+                >C5: Nghị định, Thông tư = văn bản dưới luật</span
+              >
+            </div>
+
+            <div class="card" id="c2-3">
+              <div class="card-header" onclick="toggleCard('c2-3')">
+                <div class="card-check" onclick="checkCard(event, 'c2-3')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Định nghĩa & Đặc điểm VBQPPL</div>
+                <span class="card-tag tag-sky">Định nghĩa</span>
+                <button class="card-expand" onclick="expandCard(event, 'c2-3')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c2-3">
+                <strong>Luật ban hành VBQPPL 2019:</strong> Văn bản có chứa
+                QPPL, ban hành đúng thẩm quyền, hình thức, trình tự, thủ tục quy
+                định.<br /><br />
+                <strong>Đặc điểm:</strong>
+                <ul>
+                  <li>Do CQNN có thẩm quyền ban hành</li>
+                  <li>Chứa quy tắc xử sự chung mang tính bắt buộc</li>
+                  <li>
+                    Áp dụng nhiều lần (khác văn bản cá biệt chỉ áp dụng 1 lần)
+                  </li>
+                </ul>
+                <div class="warn">
+                  ⚠️ Phân biệt: VBQPPL ≠ Văn bản cá biệt (quyết định bổ nhiệm,
+                  bản án → chỉ áp dụng 1 lần)
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c2-4">
+              <div class="card-header" onclick="toggleCard('c2-4')">
+                <div class="card-check" onclick="checkCard(event, 'c2-4')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Hệ thống VBQPPL (thứ bậc từ cao → thấp)
+                </div>
+                <span class="card-tag tag-sky">Hệ thống</span>
+                <button class="card-expand" onclick="expandCard(event, 'c2-4')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c2-4">
+                <strong>Văn bản luật (Quốc hội ban hành):</strong>
+                <ul>
+                  <li>Hiến pháp (cao nhất)</li>
+                  <li>Bộ luật, luật, nghị quyết QH</li>
+                </ul>
+                <strong>Văn bản dưới luật:</strong>
+                <ul>
+                  <li>Pháp lệnh, NQ của UBTVQH</li>
+                  <li>Lệnh, QĐ Chủ tịch nước</li>
+                  <li>Nghị định Chính phủ</li>
+                  <li>Quyết định Thủ tướng</li>
+                  <li>Thông tư Bộ trưởng, Chánh án TANDTC, VT VKSNDTC</li>
+                  <li>NQ HĐND tỉnh → QĐ UBND tỉnh → cấp huyện → cấp xã</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c2-5">
+              <div class="card-header" onclick="toggleCard('c2-5')">
+                <div class="card-check" onclick="checkCard(event, 'c2-5')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Hiệu lực VBQPPL: Thời gian, Không gian, Đối tượng
+                </div>
+                <span class="card-tag tag-sky">Hiệu lực</span>
+                <button class="card-expand" onclick="expandCard(event, 'c2-5')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c2-5">
+                <strong>Theo thời gian:</strong> Không sớm hơn 45 ngày từ ngày
+                công bố/ký ban hành.<br />
+                <strong>Hết hiệu lực khi:</strong> VB mới chỉ định, VB mới thay
+                thế, hết thời hạn ghi trong VB.<br /><br />
+                <strong>Hiệu lực hồi tố:</strong> Nguyên tắc KHÔNG có hiệu lực
+                trở về trước. Ngoại lệ khi:<br />
+                <ul>
+                  <li>Không quy định TN PL nặng hơn</li>
+                  <li>
+                    VB mới bỏ hoặc giảm nhẹ trách nhiệm PL → áp dụng VB mới
+                  </li>
+                </ul>
+                <div class="warn">
+                  ⚠️ KHÔNG hồi tố khi: quy định trách nhiệm với hành vi trước
+                  đây PL không cấm, hoặc quy định nặng hơn!
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c2-6">
+              <div class="card-header" onclick="toggleCard('c2-6')">
+                <div class="card-check" onclick="checkCard(event, 'c2-6')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Nguyên tắc áp dụng VBQPPL khi có xung đột
+                </div>
+                <span class="card-tag tag-sky">Áp dụng</span>
+                <button class="card-expand" onclick="expandCard(event, 'c2-6')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c2-6">
+                <ul>
+                  <li>
+                    VB có <strong>hiệu lực pháp lý cao hơn</strong> được ưu tiên
+                    áp dụng
+                  </li>
+                  <li>
+                    Cùng cơ quan ban hành → VB
+                    <strong>ban hành sau</strong> được áp dụng
+                  </li>
+                  <li>
+                    VB mới
+                    <strong>không quy định TNPL hoặc quy định nhẹ hơn</strong> →
+                    áp dụng VB mới cho hành vi xảy ra trước
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="purple">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🔗</div>
+            <div class="cluster-title">
+              <h2>Quan hệ Pháp luật</h2>
+              <p>Liên quan: C3 (Sự kiện PL làm phát sinh QHPL → Vi phạm PL)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c2-7">
+              <div class="card-header" onclick="toggleCard('c2-7')">
+                <div class="card-check" onclick="checkCard(event, 'c2-7')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Định nghĩa & Đặc điểm Quan hệ Pháp luật (QHPL)
+                </div>
+                <span class="card-tag tag-purple">Định nghĩa</span>
+                <button class="card-expand" onclick="expandCard(event, 'c2-7')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c2-7">
+                <strong>Định nghĩa:</strong> Hình thức pháp lý của QHXH, xuất
+                hiện trên cơ sở điều chỉnh của QPPL, các bên tham gia mang quyền
+                và nghĩa vụ pháp lý.<br /><br />
+                <strong>6 đặc điểm:</strong>
+                <ul>
+                  <li>Mang tính ý chí</li>
+                  <li>Thuộc kiến trúc thượng tầng</li>
+                  <li>Xuất hiện trên cơ sở QPPL</li>
+                  <li>Các bên mang quyền + nghĩa vụ PL</li>
+                  <li>Được NN bảo đảm thực hiện</li>
+                  <li>
+                    Xác định cụ thể (3 điều kiện: có QPPL + chủ thể + sự kiện
+                    PL)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c2-8">
+              <div class="card-header" onclick="toggleCard('c2-8')">
+                <div class="card-check" onclick="checkCard(event, 'c2-8')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  4 yếu tố cấu thành Quan hệ Pháp luật
+                </div>
+                <span class="card-tag tag-purple">Cấu thành</span>
+                <button class="card-expand" onclick="expandCard(event, 'c2-8')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c2-8">
+                <table>
+                  <tr>
+                    <th>Yếu tố</th>
+                    <th>Nội dung</th>
+                  </tr>
+                  <tr>
+                    <td><strong>Chủ thể</strong></td>
+                    <td>Cá nhân/tổ chức có năng lực PL + năng lực hành vi</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Nội dung</strong></td>
+                    <td>Quyền chủ thể + Nghĩa vụ pháp lý</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Khách thể</strong></td>
+                    <td>
+                      Lợi ích vật chất/chính trị/tinh thần mà chủ thể hướng tới
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sự kiện PL</strong></td>
+                    <td>
+                      Điều kiện/hoàn cảnh làm phát sinh, thay đổi, chấm dứt QHPL
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="card" id="c2-9">
+              <div class="card-header" onclick="toggleCard('c2-9')">
+                <div class="card-check" onclick="checkCard(event, 'c2-9')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Phân biệt Pháp chế và Pháp luật</div>
+                <span class="card-tag tag-purple">So sánh</span>
+                <button class="card-expand" onclick="expandCard(event, 'c2-9')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c2-9">
+                <strong>Pháp luật:</strong> Hệ thống QPPL do NN ban hành (tiền
+                đề của pháp chế)<br /><br />
+                <strong>Pháp chế:</strong> Yêu cầu mọi chủ thể phải thực hiện
+                bình đẳng, nghiêm minh, thống nhất pháp luật.<br /><br />
+                <div class="warn">
+                  ⚠️ Có PL rồi chưa phải đã có Pháp chế! PL mâu thuẫn, chồng
+                  chéo → không có Pháp chế.
+                </div>
+                <div class="note">
+                  💡 Pháp chế xuất hiện đầu tiên trong xã hội TƯ SẢN, được tăng
+                  cường trong xã hội XHCN.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     CHAPTER 3
+══════════════════════════════════════════════ -->
+      <div id="section-ch3" class="section">
+        <div class="cluster" data-color="red">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">⚡</div>
+            <div class="cluster-title">
+              <h2>Vi phạm Pháp luật</h2>
+              <p>
+                Liên quan: C2 (Hành vi trái QPPL) · C5 (Vi phạm HC) · C7 (Tội
+                phạm) · C8 (Vi phạm KL)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">5 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="related-tags">
+              <span class="related-label">🔗 Liên quan:</span>
+              <span class="related-tag tag-green" onclick="showSection('ch2')"
+                >C2: QPPL là chuẩn mực đánh giá vi phạm</span
+              >
+              <span class="related-tag tag-orange" onclick="showSection('ch5')"
+                >C5: Vi phạm hành chính</span
+              >
+              <span class="related-tag tag-red" onclick="showSection('ch7')"
+                >C7: Tội phạm (hình sự)</span
+              >
+              <span class="related-tag tag-green" onclick="showSection('ch8')"
+                >C8: Vi phạm kỷ luật lao động</span
+              >
+            </div>
+
+            <div class="card" id="c3-1">
+              <div class="card-header" onclick="toggleCard('c3-1')">
+                <div class="card-check" onclick="checkCard(event, 'c3-1')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  3 dấu hiệu cơ bản của Vi phạm Pháp luật
+                </div>
+                <span class="card-tag tag-red">Dấu hiệu</span>
+                <button class="card-expand" onclick="expandCard(event, 'c3-1')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c3-1">
+                <ul>
+                  <li>
+                    <strong>1. Là hành vi</strong> (hành động hoặc không hành
+                    động) — Ý nghĩ chưa thành hành vi = KHÔNG vi phạm
+                  </li>
+                  <li>
+                    <strong>2. Tính trái PL</strong> — Trái yêu cầu QPPL hoặc
+                    trái tinh thần PL
+                  </li>
+                  <li>
+                    <strong>3. Có lỗi</strong> — Chủ thể nhận thức được hành vi
+                    trái PL nhưng vẫn thực hiện
+                  </li>
+                </ul>
+                <div class="warn">
+                  ⚠️ Phải có ĐỦ 3 dấu hiệu mới là vi phạm PL!
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c3-2">
+              <div class="card-header" onclick="toggleCard('c3-2')">
+                <div class="card-check" onclick="checkCard(event, 'c3-2')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  4 yếu tố cấu thành Vi phạm Pháp luật
+                </div>
+                <span class="card-tag tag-red">Cấu thành</span>
+                <button class="card-expand" onclick="expandCard(event, 'c3-2')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c3-2">
+                <table>
+                  <tr>
+                    <th>Yếu tố</th>
+                    <th>Nội dung</th>
+                  </tr>
+                  <tr>
+                    <td><strong>Mặt khách quan</strong></td>
+                    <td>
+                      Hành vi, tính trái PL, hậu quả, quan hệ nhân quả, thời
+                      gian/địa điểm/phương tiện
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Khách thể</strong></td>
+                    <td>QHXH được PL bảo vệ bị xâm hại</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Mặt chủ quan</strong></td>
+                    <td>Lỗi (cố ý/vô ý), động cơ, mục đích</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Chủ thể</strong></td>
+                    <td>Cá nhân/tổ chức có năng lực hành vi</td>
+                  </tr>
+                </table>
+                <strong>4 hình thức lỗi:</strong>
+                <ul>
+                  <li>
+                    <strong>Cố ý trực tiếp:</strong> Biết + Mong muốn hậu quả
+                    xảy ra
+                  </li>
+                  <li>
+                    <strong>Cố ý gián tiếp:</strong> Biết + Không mong muốn
+                    nhưng để mặc
+                  </li>
+                  <li>
+                    <strong>Vô ý do quá tự tin:</strong> Biết + Tin không xảy ra
+                  </li>
+                  <li>
+                    <strong>Vô ý do cẩu thả:</strong> Không biết (nhưng phải
+                    biết và có thể biết)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c3-3">
+              <div class="card-header" onclick="toggleCard('c3-3')">
+                <div class="card-check" onclick="checkCard(event, 'c3-3')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">5 loại Vi phạm Pháp luật</div>
+                <span class="card-tag tag-red">Phân loại</span>
+                <button class="card-expand" onclick="expandCard(event, 'c3-3')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c3-3">
+                <table>
+                  <tr>
+                    <th>Loại VPPL</th>
+                    <th>Mức độ</th>
+                    <th>Chương liên quan</th>
+                  </tr>
+                  <tr>
+                    <td>Hình sự (tội phạm)</td>
+                    <td>Nguy hiểm nhất, quy định trong BLHS</td>
+                    <td>C7</td>
+                  </tr>
+                  <tr>
+                    <td>Hành chính</td>
+                    <td>Ít nguy hiểm hơn hình sự</td>
+                    <td>C5</td>
+                  </tr>
+                  <tr>
+                    <td>Dân sự</td>
+                    <td>Xâm hại quan hệ tài sản, nhân thân</td>
+                    <td>C6</td>
+                  </tr>
+                  <tr>
+                    <td>Kỷ luật</td>
+                    <td>Trái quy tắc kỷ luật lao động, công vụ</td>
+                    <td>C8</td>
+                  </tr>
+                  <tr>
+                    <td>Công vụ</td>
+                    <td>Vi phạm trong hoạt động công vụ</td>
+                    <td>C5</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="orange">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">⚖️</div>
+            <div class="cluster-title">
+              <h2>Trách nhiệm Pháp lý</h2>
+              <p>
+                Liên quan: C5 (TNHC) · C6 (TNDS) · C7 (TNHS) · C8 (Trách nhiệm
+                KL, VCH)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">3 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c3-4">
+              <div class="card-header" onclick="toggleCard('c3-4')">
+                <div class="card-check" onclick="checkCard(event, 'c3-4')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Định nghĩa & Đặc điểm Trách nhiệm Pháp lý (TNPL)
+                </div>
+                <span class="card-tag tag-orange">Định nghĩa</span>
+                <button class="card-expand" onclick="expandCard(event, 'c3-4')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c3-4">
+                <strong>Định nghĩa:</strong> Sự phản ứng tiêu cực của NN với chủ
+                thể vi phạm PL — áp dụng biện pháp trừng phạt hoặc khôi phục
+                quyền/lợi ích bị xâm hại. <br /><br /><strong
+                  >3 đặc điểm:</strong
+                >
+                <ul>
+                  <li>Cơ sở thực tế: Vi phạm PL</li>
+                  <li>
+                    Cơ sở PL: Quyết định của CQNN/người có thẩm quyền có hiệu
+                    lực PL
+                  </li>
+                  <li>
+                    Là loại biện pháp cưỡng chế NN đặc thù (mang tính trừng
+                    phạt)
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c3-5">
+              <div class="card-header" onclick="toggleCard('c3-5')">
+                <div class="card-check" onclick="checkCard(event, 'c3-5')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  6 loại Trách nhiệm Pháp lý — So sánh
+                </div>
+                <span class="card-tag tag-orange">So sánh</span>
+                <button class="card-expand" onclick="expandCard(event, 'c3-5')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c3-5">
+                <table>
+                  <tr>
+                    <th>Loại TNPL</th>
+                    <th>Cơ quan áp dụng</th>
+                    <th>Chế tài điển hình</th>
+                  </tr>
+                  <tr>
+                    <td><strong>Hình sự</strong></td>
+                    <td>Tòa án</td>
+                    <td>Phạt tù, tử hình, tù chung thân</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Hành chính</strong></td>
+                    <td>CQQLNN, người có thẩm quyền</td>
+                    <td>Phạt tiền, cảnh cáo, trục xuất</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Dân sự</strong></td>
+                    <td>Tòa án</td>
+                    <td>Bồi thường thiệt hại</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kỷ luật</strong></td>
+                    <td>Thủ trưởng, GĐ xí nghiệp</td>
+                    <td>Khiển trách, cảnh cáo, sa thải</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Vật chất</strong></td>
+                    <td>Đi kèm kỷ luật</td>
+                    <td>Bồi hoàn thiệt hại cho cơ quan</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Công vụ</strong></td>
+                    <td>CQNN có thẩm quyền</td>
+                    <td>Bồi thường thiệt hại cho dân</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     CHAPTER 4
+══════════════════════════════════════════════ -->
+      <div id="section-ch4" class="section">
+        <div class="cluster" data-color="purple">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">📖</div>
+            <div class="cluster-title">
+              <h2>Khái niệm & Đặc điểm Luật Hiến pháp</h2>
+              <p>
+                Liên quan: C1 (NN VN) · C5 (HC) · tất cả ngành luật đặc biệt
+                C4–C9
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">3 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c4-1">
+              <div class="card-header" onclick="toggleCard('c4-1')">
+                <div class="card-check" onclick="checkCard(event, 'c4-1')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Đối tượng điều chỉnh của Luật Hiến pháp
+                </div>
+                <span class="card-tag tag-purple">Đối tượng</span>
+                <button class="card-expand" onclick="expandCard(event, 'c4-1')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c4-1">
+                <ul>
+                  <li>
+                    Quan hệ XH thể hiện <strong>chủ quyền nhân dân</strong>
+                  </li>
+                  <li>
+                    Các quan hệ cơ bản về <strong>chế độ chính trị</strong>
+                  </li>
+                  <li>Cơ sở kinh tế: chế độ sở hữu, thành phần KT</li>
+                  <li>
+                    Quan hệ nền tảng NN – công dân (quyền, nghĩa vụ cơ bản)
+                  </li>
+                  <li>Nguyên tắc tổ chức bộ máy NN</li>
+                  <li>Chủ quyền quốc gia (tên nước, quốc kỳ, thủ đô...)</li>
+                </ul>
+                <div class="note">
+                  💡 LHP làm CƠ SỞ cho tất cả các ngành luật khác!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="blue">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🗳️</div>
+            <div class="cluster-title">
+              <h2>Quyền con người & Quyền/Nghĩa vụ công dân</h2>
+              <p>
+                Liên quan: C6 (quyền nhân thân trong DS) · C7 (bảo vệ quyền HS)
+                · C8 (quyền lao động)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">5 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="related-tags">
+              <span class="related-label">🔗 Liên quan:</span>
+              <span class="related-tag tag-blue" onclick="showSection('ch6')"
+                >C6: Quyền nhân thân (DS)</span
+              >
+              <span class="related-tag tag-red" onclick="showSection('ch7')"
+                >C7: Bảo vệ quyền bằng HS</span
+              >
+              <span class="related-tag tag-green" onclick="showSection('ch8')"
+                >C8: Quyền lao động</span
+              >
+            </div>
+
+            <div class="card" id="c4-2">
+              <div class="card-header" onclick="toggleCard('c4-2')">
+                <div class="card-check" onclick="checkCard(event, 'c4-2')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Nguyên tắc về quyền con người, quyền công dân (HP 2013)
+                </div>
+                <span class="card-tag tag-blue">Nguyên tắc</span>
+                <button class="card-expand" onclick="expandCard(event, 'c4-2')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c4-2">
+                <ul>
+                  <li>
+                    Quyền CN chỉ bị hạn chế theo <strong>luật</strong> (quốc
+                    phòng, ANQG, trật tự, đạo đức, sức khỏe cộng đồng)
+                  </li>
+                  <li>
+                    Quyền công dân <strong>không tách rời nghĩa vụ</strong>
+                  </li>
+                  <li>Mọi người <strong>bình đẳng trước PL</strong></li>
+                  <li>
+                    Việc thực hiện quyền không được xâm phạm lợi ích QG, quyền
+                    người khác
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c4-3">
+              <div class="card-header" onclick="toggleCard('c4-3')">
+                <div class="card-check" onclick="checkCard(event, 'c4-3')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Các quyền cơ bản của công dân (HP 2013)
+                </div>
+                <span class="card-tag tag-blue">Quyền</span>
+                <button class="card-expand" onclick="expandCard(event, 'c4-3')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c4-3">
+                <strong>Quyền chính trị:</strong> Bầu cử (18+), ứng cử (21+),
+                tham gia quản lý NN, biểu quyết trưng cầu dân ý (18+)<br />
+                <strong>Quyền dân sự:</strong> Sống; bất khả xâm phạm thân thể,
+                chỗ ở; bí mật đời tư; tự do tín ngưỡng; khiếu nại, tố cáo<br />
+                <strong>Quyền kinh tế:</strong> Làm việc, kinh doanh (những gì
+                PL không cấm), sở hữu tư nhân, thừa kế<br />
+                <strong>Quyền xã hội:</strong> Giáo dục, y tế, an sinh XH, nhà
+                ở, sống trong môi trường lành mạnh<br />
+                <div class="warn">
+                  ⚠️ NGUYÊN TẮC:
+                  <em>Công dân được tự do làm những gì PL KHÔNG CẤM.</em>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c4-4">
+              <div class="card-header" onclick="toggleCard('c4-4')">
+                <div class="card-check" onclick="checkCard(event, 'c4-4')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Nghĩa vụ cơ bản của công dân</div>
+                <span class="card-tag tag-blue">Nghĩa vụ</span>
+                <button class="card-expand" onclick="expandCard(event, 'c4-4')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c4-4">
+                <ul>
+                  <li>
+                    Trung thành với Tổ quốc — Phản bội Tổ quốc = tội nặng nhất
+                  </li>
+                  <li>Bảo vệ Tổ quốc, thực hiện nghĩa vụ quân sự</li>
+                  <li>Tuân theo HP và pháp luật</li>
+                  <li>Bảo vệ AN quốc gia, trật tự AT xã hội</li>
+                  <li>Nộp thuế theo luật định</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="purple">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🏛️</div>
+            <div class="cluster-title">
+              <h2>Bộ máy Nhà nước CHXHCN Việt Nam</h2>
+              <p>Liên quan: C5 (Hành chính = bộ phận của bộ máy NN)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">6 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c4-5">
+              <div class="card-header" onclick="toggleCard('c4-5')">
+                <div class="card-check" onclick="checkCard(event, 'c4-5')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Quốc hội: Vị trí, Nhiệm kỳ, Quyền hạn
+                </div>
+                <span class="card-tag tag-purple">Quốc hội</span>
+                <button class="card-expand" onclick="expandCard(event, 'c4-5')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c4-5">
+                <strong>Vị trí:</strong> Cơ quan đại biểu cao nhất của nhân dân,
+                cơ quan quyền lực NN cao nhất.<br />
+                <strong>Chức năng:</strong> Lập hiến, lập pháp; quyết định vấn
+                đề quan trọng; giám sát tối cao.<br />
+                <strong>Nhiệm kỳ:</strong> 5 năm. QH mới bầu xong trước 60 ngày
+                trước khi QH cũ hết nhiệm kỳ.<br />
+                <strong>Họp:</strong> 2 kỳ/năm. Kéo dài nhiệm kỳ tối đa không
+                quá 12 tháng (trừ chiến tranh). Cần ≥ 2/3 đại biểu tán thành.<br />
+                <div class="note">
+                  💡 Luật/NQ QH: > ½ số đại biểu. Sửa HP/rút ngắn–kéo dài nhiệm
+                  kỳ/bãi nhiệm ĐB: ≥ 2/3.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c4-6">
+              <div class="card-header" onclick="toggleCard('c4-6')">
+                <div class="card-check" onclick="checkCard(event, 'c4-6')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Chủ tịch nước: Vị trí, Quyền hạn</div>
+                <span class="card-tag tag-purple">CTN</span>
+                <button class="card-expand" onclick="expandCard(event, 'c4-6')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c4-6">
+                <strong>Vị trí:</strong> Người đứng đầu Nhà nước, đại diện NN về
+                đối nội + đối ngoại.<br />
+                <strong>Bầu:</strong> Quốc hội bầu trong số đại biểu QH.<br />
+                <strong>Nhiệm kỳ:</strong> Theo nhiệm kỳ QH.<br />
+                <strong>Quyền hạn nổi bật:</strong> Công bố HP, luật, pháp lệnh;
+                thống lĩnh LLVTND; Chủ tịch HĐQPAN; đặc xá, đại xá; tiếp nhận
+                đại sứ.
+              </div>
+            </div>
+
+            <div class="card" id="c4-7">
+              <div class="card-header" onclick="toggleCard('c4-7')">
+                <div class="card-check" onclick="checkCard(event, 'c4-7')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Chính phủ: Vị trí, Cơ cấu, Chức năng
+                </div>
+                <span class="card-tag tag-purple">Chính phủ</span>
+                <button class="card-expand" onclick="expandCard(event, 'c4-7')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c4-7">
+                <strong>Vị trí:</strong> CQHCNN cao nhất, thực hiện quyền hành
+                pháp, là CQCHẤP HÀNH của QH.<br />
+                <strong>Cơ cấu:</strong> Thủ tướng + Phó Thủ tướng + Bộ trưởng +
+                Thủ trưởng cơ quan ngang bộ.<br />
+                <strong>Làm việc:</strong> Theo chế độ tập thể, quyết định theo
+                đa số.<br />
+                <strong>Chịu trách nhiệm:</strong> Trước QH, UBTVQH, Chủ tịch
+                nước.
+              </div>
+            </div>
+
+            <div class="card" id="c4-8">
+              <div class="card-header" onclick="toggleCard('c4-8')">
+                <div class="card-check" onclick="checkCard(event, 'c4-8')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Tòa án nhân dân & Viện kiểm sát nhân dân
+                </div>
+                <span class="card-tag tag-purple">Tư pháp</span>
+                <button class="card-expand" onclick="expandCard(event, 'c4-8')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c4-8">
+                <strong>TAND:</strong> Cơ quan xét xử, thực hiện quyền tư pháp.
+                Nhiệm vụ: bảo vệ công lý, quyền CN, chế độ XHCN.<br />
+                <strong>Hệ thống TAND:</strong> Tối cao → Cấp cao → Tỉnh/TP →
+                Huyện/Quận → Quân sự<br /><br />
+                <strong>VKSND:</strong> Thực hành quyền công tố + kiểm sát hoạt
+                động tư pháp.<br />
+                <strong>Nguyên tắc:</strong> Thẩm phán xét xử độc lập, chỉ tuân
+                theo PL. Xét xử công khai (trừ trường hợp đặc biệt).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     CHAPTER 5
+══════════════════════════════════════════════ -->
+      <div id="section-ch5" class="section">
+        <div class="cluster" data-color="orange">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🏢</div>
+            <div class="cluster-title">
+              <h2>Luật Hành chính — Khái niệm & Cơ quan HC</h2>
+              <p>Liên quan: C4 (Bộ máy NN) · C3 (Vi phạm HC → TNHC)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c5-1">
+              <div class="card-header" onclick="toggleCard('c5-1')">
+                <div class="card-check" onclick="checkCard(event, 'c5-1')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Phương pháp điều chỉnh Luật Hành chính
+                </div>
+                <span class="card-tag tag-orange">Phương pháp</span>
+                <button class="card-expand" onclick="expandCard(event, 'c5-1')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c5-1">
+                <strong>Chủ yếu: Mệnh lệnh – Phục tùng</strong> (vì bản chất
+                quan lý NN là tính quyền uy, các bên không bình đẳng: một bên ra
+                lệnh, một bên phục tùng).<br /><br />
+                <strong>Ngoại lệ: Thỏa thuận</strong> khi ban hành quyết định
+                liên tịch hoặc ký kết hợp đồng HC.
+              </div>
+            </div>
+
+            <div class="card" id="c5-2">
+              <div class="card-header" onclick="toggleCard('c5-2')">
+                <div class="card-check" onclick="checkCard(event, 'c5-2')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Phân loại Cơ quan Hành chính Nhà nước
+                </div>
+                <span class="card-tag tag-orange">Phân loại</span>
+                <button class="card-expand" onclick="expandCard(event, 'c5-2')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c5-2">
+                <strong>Theo địa giới:</strong>
+                <ul>
+                  <li>
+                    Trung ương: Chính phủ, Bộ, Cơ quan ngang Bộ, CQ thuộc CP
+                  </li>
+                  <li>Địa phương: UBND các cấp, Sở, Phòng, Ban thuộc UBND</li>
+                </ul>
+                <strong>Theo thẩm quyền:</strong>
+                <ul>
+                  <li>
+                    <strong>Thẩm quyền chung:</strong> Chính phủ + UBND các cấp
+                    (giải quyết mọi vấn đề)
+                  </li>
+                  <li>
+                    <strong>Thẩm quyền chuyên môn:</strong> Bộ, Sở, Phòng (quản
+                    lý theo ngành/lĩnh vực)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="orange">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">👨‍💼</div>
+            <div class="cluster-title">
+              <h2>Cán bộ, Công chức, Viên chức</h2>
+              <p>Liên quan: C3 (Vi phạm công vụ) · C8 (Kỷ luật lao động)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c5-3">
+              <div class="card-header" onclick="toggleCard('c5-3')">
+                <div class="card-check" onclick="checkCard(event, 'c5-3')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Phân biệt Cán bộ, Công chức, Viên chức
+                </div>
+                <span class="card-tag tag-orange">So sánh</span>
+                <button class="card-expand" onclick="expandCard(event, 'c5-3')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c5-3">
+                <table>
+                  <tr>
+                    <th>Tiêu chí</th>
+                    <th>Cán bộ</th>
+                    <th>Công chức</th>
+                    <th>Viên chức</th>
+                  </tr>
+                  <tr>
+                    <td>Cách vào</td>
+                    <td>Bầu cử, phê chuẩn, bổ nhiệm</td>
+                    <td>Tuyển dụng, bổ nhiệm vào ngạch</td>
+                    <td>Tuyển dụng theo vị trí việc làm</td>
+                  </tr>
+                  <tr>
+                    <td>Nhiệm kỳ</td>
+                    <td>Theo nhiệm kỳ</td>
+                    <td>Không theo nhiệm kỳ</td>
+                    <td>Theo hợp đồng làm việc</td>
+                  </tr>
+                  <tr>
+                    <td>Lương</td>
+                    <td>Ngân sách NN</td>
+                    <td>Ngân sách NN</td>
+                    <td>Quỹ lương đơn vị SN CL</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="card" id="c5-4">
+              <div class="card-header" onclick="toggleCard('c5-4')">
+                <div class="card-check" onclick="checkCard(event, 'c5-4')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Xử lý kỷ luật Cán bộ và Công chức</div>
+                <span class="card-tag tag-orange">Kỷ luật</span>
+                <button class="card-expand" onclick="expandCard(event, 'c5-4')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c5-4">
+                <strong>Cán bộ:</strong> Khiển trách → Cảnh cáo → Cách chức →
+                Bãi nhiệm<br />
+                <strong>Công chức:</strong> Khiển trách → Cảnh cáo → Hạ bậc
+                lương → Giáng chức → Cách chức → Buộc thôi việc<br />
+                <div class="note">
+                  💡 Cán bộ không có "Hạ bậc lương, Giáng chức, Buộc thôi việc".
+                  Công chức không có "Bãi nhiệm".
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="red">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🚔</div>
+            <div class="cluster-title">
+              <h2>Vi phạm Hành chính & Trách nhiệm Hành chính</h2>
+              <p>Liên quan: C3 (Vi phạm HC là 1 loại VPPL)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c5-5">
+              <div class="card-header" onclick="toggleCard('c5-5')">
+                <div class="card-check" onclick="checkCard(event, 'c5-5')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Định nghĩa & Dấu hiệu Vi phạm Hành chính
+                </div>
+                <span class="card-tag tag-red">Định nghĩa</span>
+                <button class="card-expand" onclick="expandCard(event, 'c5-5')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c5-5">
+                <strong>Định nghĩa:</strong> Hành vi có lỗi, vi phạm quy định PL
+                về quản lý NN, không phải tội phạm, phải bị xử phạt vi phạm HC.
+                <br /><br /><strong>Đặc điểm:</strong>
+                <ul>
+                  <li>Ít nguy hiểm hơn vi phạm hình sự</li>
+                  <li>
+                    Không nhất thiết phải có hậu quả (chỉ cần "hình thức")
+                  </li>
+                  <li>Có thể là cá nhân hoặc tổ chức</li>
+                  <li>Cố ý hoặc vô ý</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c5-6">
+              <div class="card-header" onclick="toggleCard('c5-6')">
+                <div class="card-check" onclick="checkCard(event, 'c5-6')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  5 hình thức xử phạt Vi phạm Hành chính
+                </div>
+                <span class="card-tag tag-red">Xử phạt</span>
+                <button class="card-expand" onclick="expandCard(event, 'c5-6')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c5-6">
+                <ul>
+                  <li><strong>Cảnh cáo</strong> — vi phạm nhẹ, lần đầu</li>
+                  <li>
+                    <strong>Phạt tiền</strong> — 50.000đ–1 tỷ (cá nhân),
+                    100.000đ–2 tỷ (tổ chức)
+                  </li>
+                  <li>
+                    <strong>Tước quyền sử dụng giấy phép</strong> có thời hạn /
+                    đình chỉ hoạt động
+                  </li>
+                  <li>
+                    <strong>Tịch thu tang vật, phương tiện</strong> vi phạm HC
+                  </li>
+                  <li><strong>Trục xuất</strong> (người nước ngoài)</li>
+                </ul>
+                <div class="note">
+                  💡 Mức phạt tiền với TỔ CHỨC = 2 lần mức phạt tiền với CÁ NHÂN
+                </div>
+                <div class="warn">
+                  ⚠️ Một hành vi VPPHC chỉ bị xử phạt MỘT LẦN
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="orange">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🛡️</div>
+            <div class="cluster-title">
+              <h2>Pháp luật về Phòng chống Tham nhũng</h2>
+              <p>
+                Liên quan: C3 (Tham nhũng = VPPL) · C7 (Tội phạm về tham nhũng)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">3 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c5-7">
+              <div class="card-header" onclick="toggleCard('c5-7')">
+                <div class="card-check" onclick="checkCard(event, 'c5-7')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Định nghĩa & 3 đặc điểm Tham nhũng</div>
+                <span class="card-tag tag-orange">Tham nhũng</span>
+                <button class="card-expand" onclick="expandCard(event, 'c5-7')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c5-7">
+                <strong>Định nghĩa (Luật PCTN):</strong> Hành vi của người có
+                chức vụ, quyền hạn đã lợi dụng chức vụ, quyền hạn đó VÌ VỤ LỢI.
+                <br /><br /><strong>3 đặc điểm:</strong>
+                <ul>
+                  <li>Chủ thể: người có chức vụ, quyền hạn</li>
+                  <li>Lợi dụng chức vụ, quyền hạn làm trái PL</li>
+                  <li>
+                    Động cơ: VÌ VỤ LỢI (thiếu yếu tố này → không phải tham
+                    nhũng)
+                  </li>
+                </ul>
+                <div class="warn">
+                  ⚠️ 12 hành vi tham nhũng theo Luật PCTN 2005: Tham ô; Nhận hối
+                  lộ; Lạm dụng CV/QH chiếm đoạt; Lạm quyền vụ lợi; Gây ảnh hưởng
+                  trục lợi; Giả mạo công tác vụ lợi; Đưa/Môi giới hối lộ (người
+                  có CV/QH); Sử dụng trái phép TS NN; Nhũng nhiễu; Không thực
+                  hiện nhiệm vụ vụ lợi; Bao che người vi phạm...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     CHAPTER 6
+══════════════════════════════════════════════ -->
+      <div id="section-ch6" class="section">
+        <div class="cluster" data-color="blue">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">👤</div>
+            <div class="cluster-title">
+              <h2>Cá nhân, Pháp nhân trong Luật Dân sự</h2>
+              <p>Liên quan: C2 (Chủ thể QHPL) · C9 (Pháp nhân thương mại)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c6-1">
+              <div class="card-header" onclick="toggleCard('c6-1')">
+                <div class="card-check" onclick="checkCard(event, 'c6-1')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Năng lực PL dân sự & Năng lực hành vi dân sự của cá nhân
+                </div>
+                <span class="card-tag tag-blue">Năng lực</span>
+                <button class="card-expand" onclick="expandCard(event, 'c6-1')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c6-1">
+                <strong>Năng lực PL DS:</strong> Có từ khi sinh ra → Chấm dứt
+                khi chết. Mọi cá nhân bình đẳng.<br /><br />
+                <strong>Năng lực hành vi DS:</strong>
+                <table>
+                  <tr>
+                    <th>Độ tuổi</th>
+                    <th>Năng lực HV DS</th>
+                  </tr>
+                  <tr>
+                    <td>Dưới 6 tuổi</td>
+                    <td>
+                      Không có năng lực HV. Giao dịch do đại diện PL thực hiện
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6 – dưới 18 tuổi</td>
+                    <td>
+                      Hạn chế — cần đồng ý của đại diện PL (trừ nhu cầu sinh
+                      hoạt hàng ngày)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>15 – 18 tuổi</td>
+                    <td>
+                      Có TS riêng → tự giao dịch (trừ PL quy định cần 18 tuổi)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Từ 18 tuổi</td>
+                    <td>Đầy đủ (trừ mất, hạn chế NLHV)</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="card" id="c6-2">
+              <div class="card-header" onclick="toggleCard('c6-2')">
+                <div class="card-check" onclick="checkCard(event, 'c6-2')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Pháp nhân: Điều kiện, Loại hình</div>
+                <span class="card-tag tag-blue">Pháp nhân</span>
+                <button class="card-expand" onclick="expandCard(event, 'c6-2')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c6-2">
+                <strong>Điều kiện pháp nhân:</strong> Được thành lập hợp pháp;
+                Có cơ cấu tổ chức; Tài sản độc lập, tự chịu trách nhiệm; Nhân
+                danh mình tham gia QHPL.<br /><br />
+                <strong>2 loại:</strong>
+                <ul>
+                  <li>
+                    <strong>Pháp nhân thương mại:</strong> Mục tiêu tìm kiếm lợi
+                    nhuận, chia lợi nhuận cho thành viên (DN, tổ chức KT)
+                  </li>
+                  <li>
+                    <strong>Pháp nhân phi thương mại:</strong> Không mục tiêu
+                    lợi nhuận (CQNN, đơn vị VTND, tổ chức CT-XH, quỹ XH...)
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="blue">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🏠</div>
+            <div class="cluster-title">
+              <h2>Tài sản & Quyền Sở hữu</h2>
+              <p>
+                Liên quan: C4 (Quyền sở hữu tư nhân HP bảo hộ) · C9 (TS trong
+                kinh doanh)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">3 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c6-3">
+              <div class="card-header" onclick="toggleCard('c6-3')">
+                <div class="card-check" onclick="checkCard(event, 'c6-3')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">3 quyền năng của Quyền Sở hữu</div>
+                <span class="card-tag tag-blue">Quyền SH</span>
+                <button class="card-expand" onclick="expandCard(event, 'c6-3')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c6-3">
+                <table>
+                  <tr>
+                    <th>Quyền</th>
+                    <th>Nội dung</th>
+                  </tr>
+                  <tr>
+                    <td><strong>Chiếm hữu</strong></td>
+                    <td>Nắm giữ, chi phối TS trực tiếp/gián tiếp</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sử dụng</strong></td>
+                    <td>Khai thác công dụng, hưởng hoa lợi, lợi tức</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Định đoạt</strong></td>
+                    <td>Chuyển giao quyền SH, từ bỏ, tiêu dùng, tiêu hủy</td>
+                  </tr>
+                </table>
+                <div class="note">
+                  💡 Chủ SH có thể chuyển giao QSD, QCC cho người khác mà vẫn
+                  giữ quyền SH.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="sky">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">📜</div>
+            <div class="cluster-title">
+              <h2>Thừa kế</h2>
+              <p>Liên quan: C4 (Quyền thừa kế HP bảo hộ)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c6-4">
+              <div class="card-header" onclick="toggleCard('c6-4')">
+                <div class="card-check" onclick="checkCard(event, 'c6-4')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Thừa kế theo Di chúc — Điều kiện hợp pháp
+                </div>
+                <span class="card-tag tag-sky">Di chúc</span>
+                <button class="card-expand" onclick="expandCard(event, 'c6-4')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c6-4">
+                <strong>4 điều kiện di chúc hợp pháp:</strong>
+                <ul>
+                  <li>
+                    Người lập minh mẫn, không bị đe dọa, cưỡng ép; có NLHV
+                  </li>
+                  <li>Nội dung không trái PL, đạo đức XH</li>
+                  <li>Hình thức không trái PL</li>
+                </ul>
+                <strong>Di chúc miệng:</strong> Chỉ khi tính mạng bị đe dọa,
+                không thể lập văn bản. Cần ≥ 2 người làm chứng ghi chép + ký.
+                Sau 3 tháng người lập vẫn sống → di chúc miệng bị hủy.
+                <br /><br /><strong
+                  >Thừa kế không phụ thuộc di chúc (2/3 suất):</strong
+                >
+                Con chưa thành niên, cha mẹ, vợ chồng, con thành niên không có
+                KNLĐ.
+              </div>
+            </div>
+
+            <div class="card" id="c6-5">
+              <div class="card-header" onclick="toggleCard('c6-5')">
+                <div class="card-check" onclick="checkCard(event, 'c6-5')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Thừa kế theo Pháp luật — 3 hàng thừa kế
+                </div>
+                <span class="card-tag tag-sky">Pháp luật</span>
+                <button class="card-expand" onclick="expandCard(event, 'c6-5')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c6-5">
+                <table>
+                  <tr>
+                    <th>Hàng</th>
+                    <th>Thành viên</th>
+                  </tr>
+                  <tr>
+                    <td><strong>Hàng 1</strong></td>
+                    <td>Vợ/chồng, cha/mẹ đẻ, cha/mẹ nuôi, con đẻ, con nuôi</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Hàng 2</strong></td>
+                    <td>
+                      Ông/bà nội, ngoại; anh/chị/em ruột; cháu ruột (mà người
+                      chết là ông/bà)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Hàng 3</strong></td>
+                    <td>
+                      Cụ nội/ngoại; bác/chú/cô/dì/cậu; cháu ruột (mà người chết
+                      là bác/chú/cô/dì/cậu); chắt (mà người chết là cụ)
+                    </td>
+                  </tr>
+                </table>
+                <div class="note">
+                  💡 Hàng sau chỉ được hưởng khi hàng trước không còn ai, từ
+                  chối, bị truất, mất KNHƯỞNG.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c6-6">
+              <div class="card-header" onclick="toggleCard('c6-6')">
+                <div class="card-check" onclick="checkCard(event, 'c6-6')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Thừa kế thế vị</div>
+                <span class="card-tag tag-sky">Thế vị</span>
+                <button class="card-expand" onclick="expandCard(event, 'c6-6')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c6-6">
+                Con của người để lại di sản chết
+                <strong>trước/cùng lúc</strong> với người để lại di sản → Cháu
+                hưởng thay cha/mẹ. Cháu cũng chết → Chắt hưởng.
+                <div class="note">
+                  💡 Chỉ áp dụng theo hướng đi xuống (không áp dụng lên cha
+                  mẹ/ông bà).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="blue">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">📝</div>
+            <div class="cluster-title">
+              <h2>Hợp đồng Dân sự & Nghĩa vụ DS</h2>
+              <p>Liên quan: C8 (HĐLĐ) · C9 (HĐ kinh doanh)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">3 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c6-7">
+              <div class="card-header" onclick="toggleCard('c6-7')">
+                <div class="card-check" onclick="checkCard(event, 'c6-7')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Hợp đồng DS: Định nghĩa, Nguyên tắc, Hình thức
+                </div>
+                <span class="card-tag tag-blue">Hợp đồng</span>
+                <button class="card-expand" onclick="expandCard(event, 'c6-7')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c6-7">
+                <strong>Định nghĩa:</strong> Sự thỏa thuận giữa các bên về xác
+                lập, thay đổi, chấm dứt quyền và nghĩa vụ DS.<br /><br />
+                <strong>2 nguyên tắc:</strong> Tự do giao kết (không trái PL,
+                đạo đức XH) · Tự nguyện, bình đẳng, thiện chí, hợp tác.<br /><br />
+                <strong>Hình thức:</strong> Lời nói | Văn bản | Hành vi cụ thể
+                (trừ trường hợp PL bắt buộc phải văn bản/công chứng/đăng ký).
+              </div>
+            </div>
+
+            <div class="card" id="c6-8">
+              <div class="card-header" onclick="toggleCard('c6-8')">
+                <div class="card-check" onclick="checkCard(event, 'c6-8')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  9 biện pháp đảm bảo thực hiện nghĩa vụ DS
+                </div>
+                <span class="card-tag tag-blue">Biện pháp ĐB</span>
+                <button class="card-expand" onclick="expandCard(event, 'c6-8')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c6-8">
+                <ul>
+                  <li>
+                    <strong>Cầm cố TS</strong> — giao TS động sản cho bên có
+                    quyền
+                  </li>
+                  <li>
+                    <strong>Thế chấp TS</strong> — giao giấy tờ bất động sản
+                  </li>
+                  <li>
+                    <strong>Đặt cọc</strong> — giao tiền/kim khí/TS để đảm bảo
+                    giao kết/thực hiện HĐ
+                  </li>
+                  <li>
+                    <strong>Ký cược</strong> — bên thuê động sản giao TS ký cược
+                  </li>
+                  <li>
+                    <strong>Ký quỹ</strong> — gửi tiền/TS vào tài khoản phong
+                    tỏa ngân hàng
+                  </li>
+                  <li><strong>Bảo lưu quyền SH</strong> — trong HĐ mua bán</li>
+                  <li>
+                    <strong>Bảo lãnh</strong> — người thứ 3 cam kết thực hiện
+                    thay
+                  </li>
+                  <li>
+                    <strong>Tín chấp</strong> — tổ chức CT-XH bảo đảm cho cá
+                    nhân/hộ nghèo vay
+                  </li>
+                  <li>
+                    <strong>Cầm giữ TS</strong> — bên có quyền giữ TS khi bên có
+                    NV chưa thực hiện
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     CHAPTER 7
+══════════════════════════════════════════════ -->
+      <div id="section-ch7" class="section">
+        <div class="cluster" data-color="red">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">⚖️</div>
+            <div class="cluster-title">
+              <h2>Tội phạm — Khái niệm & Cấu thành</h2>
+              <p>
+                Liên quan: C3 (Tội phạm = Vi phạm HS = mức độ cao nhất) · C5
+                (Tội phạm tham nhũng)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">5 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c7-1">
+              <div class="card-header" onclick="toggleCard('c7-1')">
+                <div class="card-check" onclick="checkCard(event, 'c7-1')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Định nghĩa Tội phạm & 4 dấu hiệu cơ bản
+                </div>
+                <span class="card-tag tag-red">Định nghĩa</span>
+                <button class="card-expand" onclick="expandCard(event, 'c7-1')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c7-1">
+                <strong>Điều 8 BLHS 2015:</strong> Hành vi nguy hiểm cho XH quy
+                định trong BLHS, do người có NLTNHS hoặc pháp nhân thương mại
+                thực hiện cố ý/vô ý, xâm phạm các quan hệ XH được PL bảo vệ,
+                phải bị xử lý HS.<br /><br />
+                <strong>4 dấu hiệu:</strong>
+                <ul>
+                  <li>
+                    <strong>Tính nguy hiểm cho XH</strong> — dấu hiệu VẬT CHẤT,
+                    cơ bản nhất
+                  </li>
+                  <li>
+                    <strong>Tính có lỗi</strong> — cố ý hoặc vô ý (không chấp
+                    nhận buộc tội khách quan)
+                  </li>
+                  <li>
+                    <strong>Tính trái PL hình sự</strong> — phải quy định trong
+                    BLHS
+                  </li>
+                  <li>
+                    <strong>Tính phải chịu hình phạt</strong> — bất kỳ TP nào
+                    cũng bị đe dọa HP
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" id="c7-2">
+              <div class="card-header" onclick="toggleCard('c7-2')">
+                <div class="card-check" onclick="checkCard(event, 'c7-2')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  4 loại Tội phạm theo mức độ nghiêm trọng
+                </div>
+                <span class="card-tag tag-red">Phân loại</span>
+                <button class="card-expand" onclick="expandCard(event, 'c7-2')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c7-2">
+                <table>
+                  <tr>
+                    <th>Loại</th>
+                    <th>Mức phạt tối đa</th>
+                  </tr>
+                  <tr>
+                    <td>Ít nghiêm trọng</td>
+                    <td>≤ 3 năm tù, phạt tiền, cải tạo không giam giữ</td>
+                  </tr>
+                  <tr>
+                    <td>Nghiêm trọng</td>
+                    <td>Trên 3 năm → ≤ 7 năm tù</td>
+                  </tr>
+                  <tr>
+                    <td>Rất nghiêm trọng</td>
+                    <td>Trên 7 năm → ≤ 15 năm tù</td>
+                  </tr>
+                  <tr>
+                    <td>Đặc biệt nghiêm trọng</td>
+                    <td>Trên 15 năm → 20 năm/chung thân/tử hình</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="card" id="c7-3">
+              <div class="card-header" onclick="toggleCard('c7-3')">
+                <div class="card-check" onclick="checkCard(event, 'c7-3')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Thời hiệu truy cứu Trách nhiệm Hình sự
+                </div>
+                <span class="card-tag tag-red">Thời hiệu</span>
+                <button class="card-expand" onclick="expandCard(event, 'c7-3')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c7-3">
+                <ul>
+                  <li><strong>Ít nghiêm trọng:</strong> 5 năm</li>
+                  <li><strong>Nghiêm trọng:</strong> 10 năm</li>
+                  <li><strong>Rất nghiêm trọng:</strong> 15 năm</li>
+                  <li><strong>Đặc biệt nghiêm trọng:</strong> 20 năm</li>
+                </ul>
+                <div class="warn">
+                  ⚠️ Nếu cố tình trốn tránh và có lệnh truy nã → thời gian trốn
+                  KHÔNG được tính!
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c7-4">
+              <div class="card-header" onclick="toggleCard('c7-4')">
+                <div class="card-check" onclick="checkCard(event, 'c7-4')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  6 trường hợp loại trừ Trách nhiệm Hình sự
+                </div>
+                <span class="card-tag tag-red">Loại trừ TN</span>
+                <button class="card-expand" onclick="expandCard(event, 'c7-4')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c7-4">
+                <ul>
+                  <li>
+                    <strong>Sự kiện bất ngờ (Đ20)</strong> — Không thể/không
+                    buộc phải thấy trước HQ
+                  </li>
+                  <li>
+                    <strong>Không có NLTNHS (Đ21)</strong> — Bệnh tâm thần làm
+                    mất khả năng nhận thức/điều khiển HV
+                  </li>
+                  <li>
+                    <strong>Phòng vệ chính đáng (Đ22)</strong> — Chống trả cần
+                    thiết hành vi xâm phạm
+                  </li>
+                  <li>
+                    <strong>Tình thế cấp thiết (Đ23)</strong> — Gây thiệt hại
+                    NHỎ HƠN để tránh thiệt hại ĐANG đe dọa
+                  </li>
+                  <li><strong>Bắt giữ người phạm pháp (Đ24)</strong></li>
+                  <li><strong>Rủi ro trong NC-TN khoa học (Đ25)</strong></li>
+                </ul>
+                <div class="warn">
+                  ⚠️ Vượt quá giới hạn phòng vệ chính đáng/tình thế cấp thiết →
+                  VẪN bị TNHS!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="orange">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">⚓</div>
+            <div class="cluster-title">
+              <h2>Hình phạt</h2>
+              <p>Liên quan: C3 (TNHS = nghiêm khắc nhất)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">3 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c7-5">
+              <div class="card-header" onclick="toggleCard('c7-5')">
+                <div class="card-check" onclick="checkCard(event, 'c7-5')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Hệ thống Hình phạt đối với Cá nhân</div>
+                <span class="card-tag tag-orange">Hình phạt</span>
+                <button class="card-expand" onclick="expandCard(event, 'c7-5')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c7-5">
+                <strong>Hình phạt chính:</strong> Cảnh cáo → Phạt tiền → Cải tạo
+                không giam giữ → Trục xuất → Tù có thời hạn → Tù chung thân → Tử
+                hình<br /><br />
+                <strong>Hình phạt bổ sung (kèm theo HP chính):</strong> Cấm đảm
+                nhiệm chức vụ; Cấm cư trú; Quản chế; Tước quyền công dân; Tịch
+                thu TS; Phạt tiền; Trục xuất<br />
+                <div class="note">
+                  💡 Mỗi tội phạm chỉ được áp dụng 1 HP CHÍNH, nhưng có thể có 1
+                  hoặc nhiều HP BỔ SUNG.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c7-6">
+              <div class="card-header" onclick="toggleCard('c7-6')">
+                <div class="card-check" onclick="checkCard(event, 'c7-6')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Hình phạt đối với Pháp nhân thương mại
+                </div>
+                <span class="card-tag tag-orange">Pháp nhân</span>
+                <button class="card-expand" onclick="expandCard(event, 'c7-6')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c7-6">
+                <strong>HP chính:</strong> Phạt tiền · Tước quyền SD giấy phép
+                có thời hạn/đình chỉ HĐ có thời hạn · Tước QSD GP vĩnh viễn/đình
+                chỉ HĐ vĩnh viễn<br />
+                <strong>HP bổ sung:</strong> Cấm kinh doanh, cấm HĐ một số lĩnh
+                vực; Cấm huy động vốn; Phạt tiền
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     CHAPTER 8
+══════════════════════════════════════════════ -->
+      <div id="section-ch8" class="section">
+        <div class="cluster" data-color="green">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">📋</div>
+            <div class="cluster-title">
+              <h2>Hợp đồng Lao động</h2>
+              <p>
+                Liên quan: C6 (HĐLĐ là loại HĐ đặc biệt so với HĐDS) · C9 (HĐLĐ
+                trong DN)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">5 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="related-tags">
+              <span class="related-label">🔗 Liên quan:</span>
+              <span class="related-tag tag-blue" onclick="showSection('ch6')"
+                >C6: HĐDS (giao kết/chấm dứt tương tự)</span
+              >
+              <span class="related-tag tag-orange" onclick="showSection('ch9')"
+                >C9: HĐLĐ trong doanh nghiệp</span
+              >
+            </div>
+
+            <div class="card" id="c8-1">
+              <div class="card-header" onclick="toggleCard('c8-1')">
+                <div class="card-check" onclick="checkCard(event, 'c8-1')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Phân loại Hợp đồng Lao động (BLLĐ 2019)
+                </div>
+                <span class="card-tag tag-green">Phân loại</span>
+                <button class="card-expand" onclick="expandCard(event, 'c8-1')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c8-1">
+                <ul>
+                  <li>
+                    <strong>HĐLĐ không xác định thời hạn:</strong> Không xác
+                    định thời điểm chấm dứt
+                  </li>
+                  <li>
+                    <strong>HĐLĐ xác định thời hạn:</strong> 12 đến 36 tháng
+                  </li>
+                </ul>
+                <strong>Hình thức:</strong> Văn bản (hoặc phương tiện điện tử =
+                VB). Công việc tạm thời < 3 tháng → lời nói.<br />
+                <strong>Thử việc tối đa:</strong>
+                <ul>
+                  <li>Trình độ CĐ trở lên: 60 ngày</li>
+                  <li>TC nghề, TC chuyên nghiệp, CNKT: 30 ngày</li>
+                  <li>Công việc khác: 6 ngày làm việc</li>
+                </ul>
+                <div class="note">
+                  💡 Lương thử việc ≥ 85% mức lương công việc đó.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c8-2">
+              <div class="card-header" onclick="toggleCard('c8-2')">
+                <div class="card-check" onclick="checkCard(event, 'c8-2')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Quyền đơn phương chấm dứt HĐLĐ</div>
+                <span class="card-tag tag-green">Chấm dứt</span>
+                <button class="card-expand" onclick="expandCard(event, 'c8-2')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c8-2">
+                <strong>NLĐ có quyền đơn phương chấm dứt trong các TH:</strong>
+                Không được bố trí đúng CV/địa điểm; Không được trả lương đủ/đúng
+                hạn; Bị ngược đãi, cưỡng bức; Hoàn cảnh khó khăn không thể tiếp
+                tục; Được bầu làm nhiệm vụ chuyên trách; Lao động nữ mang thai
+                phải nghỉ; Điều trị 90 ngày liên tục...<br /><br />
+                <strong>Thời gian báo trước (HĐXĐTH):</strong> ≥ 30 ngày. HĐMV/<
+                12 tháng: ≥ 3 ngày.<br />
+                <strong>HĐKXĐTH:</strong> Báo trước ≥ 45 ngày.
+                <div class="warn">
+                  ⚠️ NSDLĐ KHÔNG được đơn phương chấm dứt khi: NLĐ ốm đau/TNLĐ
+                  đang điều trị; Nghỉ phép/nghỉ khác được đồng ý; Lao động nữ
+                  mang thai; Nghỉ thai sản.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c8-3">
+              <div class="card-header" onclick="toggleCard('c8-3')">
+                <div class="card-check" onclick="checkCard(event, 'c8-3')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Trợ cấp thôi việc & Trợ cấp mất việc
+                </div>
+                <span class="card-tag tag-green">Trợ cấp</span>
+                <button class="card-expand" onclick="expandCard(event, 'c8-3')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c8-3">
+                <strong>Trợ cấp thôi việc:</strong> Làm ≥ 12 tháng, mỗi năm làm
+                việc = ½ tháng lương.<br />
+                <strong>Trợ cấp mất việc:</strong> Khi thay đổi cơ cấu/KT → mỗi
+                năm = 1 tháng lương (tối thiểu 2 tháng).<br />
+                <strong>Thời gian tính:</strong> Tổng TG thực tế trừ TG đã đóng
+                BHTN trừ TG đã trả trợ cấp trước.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="sky">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">⏰</div>
+            <div class="cluster-title">
+              <h2>Tiền lương & Thời giờ làm việc/Nghỉ ngơi</h2>
+              <p>Liên quan: C3 (Vi phạm → NSDLĐ bị xử lý)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c8-4">
+              <div class="card-header" onclick="toggleCard('c8-4')">
+                <div class="card-check" onclick="checkCard(event, 'c8-4')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Thời giờ làm việc bình thường & Làm thêm giờ
+                </div>
+                <span class="card-tag tag-sky">TG làm việc</span>
+                <button class="card-expand" onclick="expandCard(event, 'c8-4')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c8-4">
+                <strong>Bình thường:</strong> ≤ 8h/ngày, ≤ 48h/tuần (KK:
+                40h/tuần)<br />
+                <strong>Theo tuần:</strong> ≤ 10h/ngày nhưng ≤ 48h/tuần<br />
+                <strong>Giờ ban đêm:</strong> 22h → 6h sáng<br /><br />
+                <strong>Làm thêm giờ:</strong> ≤ 50% TG bình thường/ngày; ≤
+                40h/tháng; ≤ 200h/năm (trường hợp đặc biệt ≤ 300h/năm). Cần đồng
+                ý của NLĐ.
+              </div>
+            </div>
+
+            <div class="card" id="c8-5">
+              <div class="card-header" onclick="toggleCard('c8-5')">
+                <div class="card-check" onclick="checkCard(event, 'c8-5')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Tiền lương làm thêm giờ & Lương ngừng việc
+                </div>
+                <span class="card-tag tag-sky">Tiền lương</span>
+                <button class="card-expand" onclick="expandCard(event, 'c8-5')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c8-5">
+                <table>
+                  <tr>
+                    <th>Trường hợp</th>
+                    <th>Mức lương</th>
+                  </tr>
+                  <tr>
+                    <td>Ngày thường</td>
+                    <td>≥ 150%</td>
+                  </tr>
+                  <tr>
+                    <td>Ngày nghỉ hằng tuần</td>
+                    <td>≥ 200%</td>
+                  </tr>
+                  <tr>
+                    <td>Ngày lễ, nghỉ hưởng lương</td>
+                    <td>≥ 300% (chưa kể lương ngày lễ)</td>
+                  </tr>
+                  <tr>
+                    <td>Ban đêm</td>
+                    <td>+30% đơn giá</td>
+                  </tr>
+                  <tr>
+                    <td>Làm thêm ban đêm</td>
+                    <td>+20% so với ban ngày</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="card" id="c8-6">
+              <div class="card-header" onclick="toggleCard('c8-6')">
+                <div class="card-check" onclick="checkCard(event, 'c8-6')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Nghỉ phép hằng năm & Nghỉ lễ</div>
+                <span class="card-tag tag-sky">Nghỉ ngơi</span>
+                <button class="card-expand" onclick="expandCard(event, 'c8-6')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c8-6">
+                <strong>Nghỉ phép/năm (đủ 12 tháng):</strong>
+                <ul>
+                  <li>Điều kiện bình thường: 12 ngày</li>
+                  <li>Nặng nhọc/độc hại/lao động CTN/NKT: 14 ngày</li>
+                  <li>Đặc biệt nặng nhọc/đặc biệt khắc nghiệt: 16 ngày</li>
+                </ul>
+                Cứ 5 năm làm việc → +1 ngày phép.<br /><br />
+                <strong>Nghỉ lễ:</strong> Tết DL 1, Tết ÂL 5, Giỗ Tổ 1, 30/4 1,
+                1/5 1, Quốc khánh 2 ngày = tổng <strong>11 ngày/năm</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="red">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">⚡</div>
+            <div class="cluster-title">
+              <h2>Kỷ luật Lao động & Tranh chấp Lao động</h2>
+              <p>Liên quan: C3 (Vi phạm KL = 1 loại VPPL)</p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c8-7">
+              <div class="card-header" onclick="toggleCard('c8-7')">
+                <div class="card-check" onclick="checkCard(event, 'c8-7')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">4 hình thức Kỷ luật Lao động</div>
+                <span class="card-tag tag-red">Kỷ luật</span>
+                <button class="card-expand" onclick="expandCard(event, 'c8-7')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c8-7">
+                <ul>
+                  <li><strong>Khiển trách</strong></li>
+                  <li>
+                    <strong>Kéo dài nâng lương</strong> ≤ 6 tháng / Cách chức
+                  </li>
+                  <li>
+                    <strong>Sa thải:</strong> Trộm cắp, tham ô, đánh bạc, dùng
+                    ma túy tại nơi làm việc; Tái phạm trong thời hạn chưa xóa
+                    KL; Bỏ việc 5 ngày cộng dồn/tháng hoặc 20 ngày/năm không lý
+                    do chính đáng
+                  </li>
+                </ul>
+                <strong>Thời hiệu:</strong> Tối đa 6 tháng từ ngày xảy ra vi
+                phạm (12 tháng nếu liên quan tài chính, TS, bí mật).
+                <div class="warn">
+                  ⚠️ Cấm: Xâm phạm thân thể/nhân phẩm; Phạt tiền/cắt lương thay
+                  KL; Xử lý KL hành vi không có trong Nội quy.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c8-8">
+              <div class="card-header" onclick="toggleCard('c8-8')">
+                <div class="card-check" onclick="checkCard(event, 'c8-8')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Tranh chấp Lao động — Phân loại & Giải quyết
+                </div>
+                <span class="card-tag tag-red">Tranh chấp</span>
+                <button class="card-expand" onclick="expandCard(event, 'c8-8')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c8-8">
+                <strong>Tranh chấp cá nhân:</strong> Hòa giải viên LĐ (5 ngày) →
+                Tòa án<br />
+                <strong>Tranh chấp tập thể về quyền:</strong> Hòa giải viên →
+                Chủ tịch UBND cấp huyện (5 ngày) → Tòa án<br />
+                <strong>Tranh chấp tập thể về lợi ích:</strong> Hòa giải viên →
+                Hội đồng trọng tài LĐ (7 ngày) → Đình công<br />
+                <div class="note">
+                  💡 Thời hiệu: 6 tháng cho hòa giải viên; 1 năm cho Tòa án
+                  (tranh chấp cá nhân).
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     CHAPTER 9
+══════════════════════════════════════════════ -->
+      <div id="section-ch9" class="section">
+        <div class="cluster" data-color="orange">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">🏭</div>
+            <div class="cluster-title">
+              <h2>Các loại hình Doanh nghiệp</h2>
+              <p>
+                Liên quan: C6 (Pháp nhân trong DS) · C7 (Pháp nhân thương mại
+                phạm tội HS) · C8 (HĐLĐ trong DN)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">6 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="related-tags">
+              <span class="related-label">🔗 Liên quan:</span>
+              <span class="related-tag tag-blue" onclick="showSection('ch6')"
+                >C6: Pháp nhân (điều kiện, loại)</span
+              >
+              <span class="related-tag tag-red" onclick="showSection('ch7')"
+                >C7: Pháp nhân TM có thể bị phạt HS</span
+              >
+              <span class="related-tag tag-green" onclick="showSection('ch8')"
+                >C8: Lao động trong DN</span
+              >
+            </div>
+
+            <div class="card" id="c9-1">
+              <div class="card-header" onclick="toggleCard('c9-1')">
+                <div class="card-check" onclick="checkCard(event, 'c9-1')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">So sánh 4 loại hình Công ty</div>
+                <span class="card-tag tag-orange">So sánh</span>
+                <button class="card-expand" onclick="expandCard(event, 'c9-1')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c9-1">
+                <table>
+                  <tr>
+                    <th>Loại</th>
+                    <th>Thành viên</th>
+                    <th>Trách nhiệm</th>
+                    <th>Phát hành CK</th>
+                  </tr>
+                  <tr>
+                    <td>TNHH 2TV+</td>
+                    <td>2–50 TV (cá nhân/tổ chức)</td>
+                    <td>Giới hạn vốn góp</td>
+                    <td>Không</td>
+                  </tr>
+                  <tr>
+                    <td>TNHH 1TV</td>
+                    <td>1 cá nhân/tổ chức</td>
+                    <td>Giới hạn vốn điều lệ</td>
+                    <td>Không</td>
+                  </tr>
+                  <tr>
+                    <td>Cổ phần</td>
+                    <td>≥ 3 cổ đông (không giới hạn)</td>
+                    <td>Giới hạn vốn góp</td>
+                    <td>Được</td>
+                  </tr>
+                  <tr>
+                    <td>Hợp danh</td>
+                    <td>≥ 2 TV hợp danh (cá nhân)</td>
+                    <td>TV hợp danh: Vô hạn; TV góp vốn: giới hạn</td>
+                    <td>Không</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="card" id="c9-2">
+              <div class="card-header" onclick="toggleCard('c9-2')">
+                <div class="card-check" onclick="checkCard(event, 'c9-2')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Doanh nghiệp tư nhân — Đặc điểm</div>
+                <span class="card-tag tag-orange">DNTN</span>
+                <button class="card-expand" onclick="expandCard(event, 'c9-2')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c9-2">
+                <ul>
+                  <li>
+                    Do 1 cá nhân làm chủ, chịu trách nhiệm bằng TOÀN BỘ tài sản
+                  </li>
+                  <li>Không được phát hành chứng khoán</li>
+                  <li>Mỗi cá nhân chỉ được thành lập 1 DNTN</li>
+                  <li>
+                    Không được đồng thời là chủ hộ KD, thành viên công ty hợp
+                    danh
+                  </li>
+                </ul>
+                <div class="warn">⚠️ DNTN KHÔNG có tư cách pháp nhân!</div>
+              </div>
+            </div>
+
+            <div class="card" id="c9-3">
+              <div class="card-header" onclick="toggleCard('c9-3')">
+                <div class="card-check" onclick="checkCard(event, 'c9-3')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">Hợp tác xã — Điều kiện thành lập</div>
+                <span class="card-tag tag-orange">HTX</span>
+                <button class="card-expand" onclick="expandCard(event, 'c9-3')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c9-3">
+                <strong>HTX:</strong> ≥ 7 thành viên tự nguyện thành lập, tư
+                cách pháp nhân.<br />
+                <strong>Liên hiệp HTX:</strong> ≥ 4 HTX tự nguyện thành lập, tư
+                cách pháp nhân.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cluster" data-color="red">
+          <div class="cluster-header" onclick="toggleCluster(this)">
+            <div class="cluster-icon">💼</div>
+            <div class="cluster-title">
+              <h2>Phá sản & Giải quyết Tranh chấp Kinh doanh</h2>
+              <p>
+                Liên quan: C3 (Trách nhiệm tài sản) · C6 (Nghĩa vụ DS chưa thực
+                hiện)
+              </p>
+            </div>
+            <div class="cluster-meta">
+              <span class="cluster-count">4 nội dung</span
+              ><span class="cluster-arrow">›</span>
+            </div>
+          </div>
+          <div class="cluster-body">
+            <div class="card" id="c9-4">
+              <div class="card-header" onclick="toggleCard('c9-4')">
+                <div class="card-check" onclick="checkCard(event, 'c9-4')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Định nghĩa Phá sản & Điều kiện mất khả năng thanh toán
+                </div>
+                <span class="card-tag tag-red">Phá sản</span>
+                <button class="card-expand" onclick="expandCard(event, 'c9-4')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c9-4">
+                <strong>Luật Phá sản 2014:</strong> Phá sản là tình trạng DN/HTX
+                MẤT KHẢ NĂNG THANH TOÁN và bị TAND ra quyết định tuyên bố phá
+                sản.<br /><br />
+                <strong>Mất khả năng TT:</strong> Không thực hiện nghĩa vụ thanh
+                toán trong thời hạn <strong>3 tháng</strong> kể từ ngày đến hạn.
+                <div class="warn">
+                  ⚠️ Phân biệt Phá sản ≠ Giải thể: Giải thể = DN tự chủ động
+                  chấm dứt hoạt động khi còn khả năng TT nợ.
+                </div>
+              </div>
+            </div>
+
+            <div class="card" id="c9-5">
+              <div class="card-header" onclick="toggleCard('c9-5')">
+                <div class="card-check" onclick="checkCard(event, 'c9-5')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  Thứ tự ưu tiên thanh toán tài sản khi phá sản
+                </div>
+                <span class="card-tag tag-red">Thanh toán</span>
+                <button class="card-expand" onclick="expandCard(event, 'c9-5')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c9-5">
+                <ol>
+                  <li>Phí phá sản</li>
+                  <li>
+                    Nợ lương, trợ cấp thôi việc, BHXH, quyền lợi khác theo
+                    TƯLĐTT và HĐLĐ
+                  </li>
+                  <li>
+                    Nợ không có bảo đảm (theo tỷ lệ tương ứng nếu không đủ)
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="card" id="c9-6">
+              <div class="card-header" onclick="toggleCard('c9-6')">
+                <div class="card-check" onclick="checkCard(event, 'c9-6')">
+                  <svg width="10" height="8" viewBox="0 0 10 8">
+                    <path
+                      d="M1 4l3 3 5-6"
+                      stroke="white"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div class="card-title">
+                  4 hình thức Giải quyết Tranh chấp Kinh doanh
+                </div>
+                <span class="card-tag tag-red">Tranh chấp KD</span>
+                <button class="card-expand" onclick="expandCard(event, 'c9-6')">
+                  ▾
+                </button>
+              </div>
+              <div class="card-detail" id="detail-c9-6">
+                <table>
+                  <tr>
+                    <th>Hình thức</th>
+                    <th>Đặc điểm</th>
+                  </tr>
+                  <tr>
+                    <td><strong>Thương lượng</strong></td>
+                    <td>Không cần bên thứ 3, tự giải quyết bất đồng</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Hòa giải</strong></td>
+                    <td>
+                      Bên thứ 3 hỗ trợ, tự nguyện, không bắt buộc thực hiện
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Trọng tài</strong></td>
+                    <td>Phán quyết buộc thực hiện, theo Luật TTTM 2010</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tòa án</strong></td>
+                    <td>Theo BLTTDS 2015 (từ 01/06/2016)</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+     QUIZ
+══════════════════════════════════════════════ -->
+      <div id="section-quiz" class="section">
+        <div class="quiz-intro">
+          <div>
+            <h2>🎯 Ôn tập Trắc nghiệm</h2>
+            <p>
+              30 câu hỏi trắc nghiệm bao phủ toàn bộ 9 chương. Nhấn "Bắt đầu" để
+              làm bài.
+            </p>
+          </div>
+          <button class="btn-quiz" onclick="startQuiz()">
+            ▶ Bắt đầu làm bài
+          </button>
+        </div>
+
+        <div class="quiz-container" id="quiz-container"></div>
+        <div class="quiz-score-wrap" id="quiz-score"></div>
+      </div>
+    </main>
+
+    <script>
+      // ─── DATA ─────────────────────────────────────────────────────────────────
+      const quizData = [
+        {
+          q: "Theo học thuyết Mác-Lênin, tiền đề kinh tế cho sự ra đời của Nhà nước là gì?",
+          o: [
+            "Sự xuất hiện của lực lượng sản xuất",
+            "Chế độ tư hữu tài sản",
+            "Sự phân công lao động xã hội",
+            "Sự phát triển của thương nghiệp",
+          ],
+          a: 1,
+          e: "Tiền đề kinh tế: chế độ tư hữu tài sản. Tiền đề xã hội: phân hóa xã hội thành các giai cấp có lợi ích đối lập.",
+        },
+        {
+          q: "Nhà nước có bao nhiêu dấu hiệu đặc trưng để phân biệt với các tổ chức khác?",
+          o: ["3 dấu hiệu", "4 dấu hiệu", "5 dấu hiệu", "6 dấu hiệu"],
+          a: 2,
+          e: "5 dấu hiệu: (1) Quyền lực chính trị công cộng đặc biệt; (2) Quản lý dân cư theo lãnh thổ; (3) Chủ quyền quốc gia; (4) Ban hành PL; (5) Thu thuế bắt buộc.",
+        },
+        {
+          q: "Hình thức chính thể nào có quyền lực Nhà nước tập trung toàn bộ vào người đứng đầu theo nguyên tắc thừa kế?",
+          o: [
+            "Chính thể cộng hòa",
+            "Chính thể liên bang",
+            "Chính thể quân chủ",
+            "Chính thể liên minh",
+          ],
+          a: 2,
+          e: "Chính thể quân chủ: quyền lực NN tập trung vào Vua/Hoàng đế theo nguyên tắc thừa kế.",
+        },
+        {
+          q: "Cấu trúc của Quy phạm Pháp luật gồm mấy bộ phận?",
+          o: ["2 bộ phận", "3 bộ phận", "4 bộ phận", "5 bộ phận"],
+          a: 1,
+          e: "QPPL có 3 bộ phận: Giả định – Quy định – Chế tài. Trong đó Quy định là yếu tố TRUNG TÂM.",
+        },
+        {
+          q: "Bộ phận nào trong QPPL trả lời câu hỏi 'Phải làm gì? Được làm gì?'",
+          o: ["Giả định", "Quy định", "Chế tài", "Tất cả 3 bộ phận"],
+          a: 1,
+          e: "Quy định trả lời: phải làm gì, được làm gì, làm như thế nào. Giả định trả lời: ai, khi nào, hoàn cảnh nào. Chế tài: hậu quả vi phạm.",
+        },
+        {
+          q: "Văn bản Quy phạm Pháp luật khác với văn bản cá biệt ở điểm nào cơ bản nhất?",
+          o: [
+            "Do cơ quan nhà nước ban hành",
+            "Được áp dụng nhiều lần, không chấm dứt hiệu lực sau khi áp dụng",
+            "Có nội dung bắt buộc",
+            "Có chứa chế tài",
+          ],
+          a: 1,
+          e: "VBQPPL được áp dụng nhiều lần. Văn bản cá biệt (bản án, quyết định bổ nhiệm) chỉ áp dụng 1 lần với đối tượng cụ thể.",
+        },
+        {
+          q: "Hiến pháp có hiệu lực pháp lý như thế nào so với các VBQPPL khác?",
+          o: [
+            "Tương đương với luật",
+            "Thấp hơn Pháp lệnh",
+            "Cao nhất trong hệ thống VBQPPL",
+            "Ngang bằng Nghị định",
+          ],
+          a: 2,
+          e: "Hiến pháp là luật cơ bản, có hiệu lực pháp lý CAO NHẤT. Tất cả VBQPPL khác không được trái Hiến pháp.",
+        },
+        {
+          q: "Vi phạm pháp luật cần có đủ bao nhiêu dấu hiệu cơ bản?",
+          o: [
+            "1 dấu hiệu (có lỗi)",
+            "2 dấu hiệu (hành vi + lỗi)",
+            "3 dấu hiệu (hành vi + trái PL + lỗi)",
+            "4 dấu hiệu",
+          ],
+          a: 2,
+          e: "Phải có ĐỦ 3 dấu hiệu: (1) Là hành vi; (2) Tính trái PL; (3) Có lỗi. Thiếu bất kỳ dấu hiệu nào thì không phải VPPL.",
+        },
+        {
+          q: "Lỗi cố ý gián tiếp là gì?",
+          o: [
+            "Biết trước HQ và mong muốn xảy ra",
+            "Biết trước HQ, không mong muốn nhưng để mặc cho xảy ra",
+            "Biết trước HQ nhưng tin rằng không xảy ra",
+            "Không biết HQ nhưng phải biết",
+          ],
+          a: 1,
+          e: "Cố ý gián tiếp: Chủ thể NHẬN THẤY TRƯỚC hậu quả, không mong muốn nhưng ĐỂ MẶC cho nó xảy ra.",
+        },
+        {
+          q: "Trách nhiệm hình sự do cơ quan nào áp dụng?",
+          o: [
+            "Cơ quan quản lý nhà nước",
+            "Thủ trưởng cơ quan",
+            "Tòa án nhân dân",
+            "UBND các cấp",
+          ],
+          a: 2,
+          e: "Trách nhiệm hình sự chỉ do TÒA ÁN NHÂN DÂN áp dụng bằng bản án kết tội có hiệu lực PL.",
+        },
+        {
+          q: "Theo Hiến pháp 2013, Nhà nước CHXHCN Việt Nam là nhà nước gì?",
+          o: [
+            "Nhà nước dân chủ tư sản",
+            "Nhà nước pháp quyền XHCN của nhân dân, do nhân dân, vì nhân dân",
+            "Nhà nước độc quyền của giai cấp công nhân",
+            "Nhà nước liên bang",
+          ],
+          a: 1,
+          e: "Điều 2 HP 2013: NN pháp quyền XHCN của nhân dân, do nhân dân, vì nhân dân. Tất cả quyền lực thuộc về nhân dân.",
+        },
+        {
+          q: "Quốc hội Việt Nam họp mấy kỳ mỗi năm theo quy định thông thường?",
+          o: ["1 kỳ", "2 kỳ", "3 kỳ", "4 kỳ"],
+          a: 1,
+          e: "Quốc hội họp 2 kỳ/năm theo quy định. Có thể họp bất thường theo yêu cầu của Chủ tịch nước, UBTVQH, TTg hoặc ≥ 1/3 tổng số ĐBQH.",
+        },
+        {
+          q: "Để sửa đổi Hiến pháp, cần bao nhiêu đại biểu Quốc hội biểu quyết tán thành?",
+          o: ["Quá 1/2", "Ít nhất 2/3", "Ít nhất 3/4", "Toàn bộ"],
+          a: 1,
+          e: "Sửa HP, rút ngắn/kéo dài nhiệm kỳ QH, bãi nhiệm ĐBQH cần ≥ 2/3 tổng số ĐBQH tán thành.",
+        },
+        {
+          q: "Công dân Việt Nam đủ bao nhiêu tuổi có quyền bầu cử và ứng cử vào Quốc hội?",
+          o: [
+            "Bầu cử từ 18 tuổi, ứng cử từ 18 tuổi",
+            "Bầu cử từ 18 tuổi, ứng cử từ 21 tuổi",
+            "Bầu cử từ 18 tuổi, ứng cử từ 25 tuổi",
+            "Bầu cử từ 21 tuổi, ứng cử từ 25 tuổi",
+          ],
+          a: 1,
+          e: "HP 2013: Bầu cử đủ 18 tuổi. Ứng cử vào QH, HĐND đủ 21 tuổi.",
+        },
+        {
+          q: "Phương pháp điều chỉnh chủ yếu của Luật Hành chính là gì?",
+          o: [
+            "Bình đẳng thỏa thuận",
+            "Mệnh lệnh – Phục tùng",
+            "Tự chịu trách nhiệm bằng tài sản",
+            "Dân chủ tập trung",
+          ],
+          a: 1,
+          e: "Luật HC dùng phương pháp MệNH LệNH – PHỤC TÙNG vì một bên ra lệnh (CQQLNN) và một bên phải phục tùng.",
+        },
+        {
+          q: "Cán bộ khi vi phạm có thể bị các hình thức kỷ luật nào?",
+          o: [
+            "Khiển trách – Cảnh cáo – Hạ bậc lương – Giáng chức – Cách chức – Buộc thôi việc",
+            "Khiển trách – Cảnh cáo – Cách chức – Bãi nhiệm",
+            "Cảnh cáo – Hạ bậc lương – Sa thải",
+            "Khiển trách – Cảnh cáo – Sa thải",
+          ],
+          a: 1,
+          e: "Cán bộ: Khiển trách → Cảnh cáo → Cách chức → Bãi nhiệm. (Không có Hạ bậc lương, Giáng chức, Buộc thôi việc như Công chức).",
+        },
+        {
+          q: "Vi phạm hành chính có đặc điểm gì khác biệt so với vi phạm hình sự?",
+          o: [
+            "Không cần có lỗi",
+            "Ít nguy hiểm hơn cho xã hội",
+            "Không cần hành vi thực tế",
+            "Không cần có quy định trong văn bản PL",
+          ],
+          a: 1,
+          e: "VPHC ít nguy hiểm cho XH hơn so với vi phạm hình sự (tội phạm). Vẫn cần có hành vi, lỗi và quy định trong VB PL.",
+        },
+        {
+          q: "Tham nhũng theo Luật PCTN là hành vi của ai?",
+          o: [
+            "Bất kỳ công dân nào",
+            "Người có chức vụ, quyền hạn",
+            "Cán bộ công chức nhà nước",
+            "Người làm kinh doanh",
+          ],
+          a: 1,
+          e: "Tham nhũng là hành vi của người có CHỨC VỤ, QUYỀN HẠN đã lợi dụng chức vụ, quyền hạn đó vì vụ lợi.",
+        },
+        {
+          q: "Năng lực pháp luật dân sự của cá nhân bắt đầu từ khi nào?",
+          o: [
+            "Khi đủ 18 tuổi",
+            "Khi được khai sinh",
+            "Khi sinh ra",
+            "Khi đủ năng lực hành vi",
+          ],
+          a: 2,
+          e: "NLPL dân sự của cá nhân có từ khi SINH RA và chấm dứt khi chết. Mọi cá nhân đều bình đẳng về NLPL DS.",
+        },
+        {
+          q: "Người từ đủ 6 đến dưới 18 tuổi có năng lực hành vi dân sự như thế nào?",
+          o: [
+            "Không có năng lực hành vi DS",
+            "Đầy đủ năng lực hành vi DS",
+            "Có nhưng hạn chế, cần đồng ý của đại diện PL",
+            "Chỉ có thể thực hiện giao dịch dưới 1 triệu đồng",
+          ],
+          a: 2,
+          e: "Từ 6 đến dưới 18 tuổi có NLHV DS HẠN CHẾ. Khi giao kết cần đồng ý của đại diện PL, trừ giao dịch phục vụ nhu cầu sinh hoạt hàng ngày phù hợp lứa tuổi.",
+        },
+        {
+          q: "Hàng thừa kế thứ nhất gồm những ai?",
+          o: [
+            "Cha mẹ, anh chị em ruột",
+            "Vợ/chồng, cha/mẹ đẻ, cha/mẹ nuôi, con đẻ, con nuôi",
+            "Ông bà nội, ông bà ngoại, anh chị em ruột",
+            "Cụ nội, cụ ngoại, bác chú cô dì cậu",
+          ],
+          a: 1,
+          e: "Hàng 1: Vợ/chồng, cha đẻ, mẹ đẻ, cha nuôi, mẹ nuôi, con đẻ, con nuôi của người chết.",
+        },
+        {
+          q: "Di chúc miệng có hiệu lực đến khi nào?",
+          o: [
+            "Vĩnh viễn sau khi người lập chết",
+            "Trong 3 năm",
+            "Sau 3 tháng kể từ ngày lập nếu người lập vẫn sống thì bị hủy bỏ",
+            "Trong 6 tháng",
+          ],
+          a: 2,
+          e: "Di chúc miệng chỉ dùng khi tính mạng bị đe dọa. Sau 3 tháng từ ngày lập mà người lập vẫn còn sống → di chúc miệng BỊ HỦY BỎ.",
+        },
+        {
+          q: "Tội phạm ít nghiêm trọng là loại tội phạm có mức phạt tối đa là?",
+          o: [
+            "Dưới 1 năm tù",
+            "3 năm tù, phạt tiền, cải tạo không giam giữ",
+            "Từ 3 đến 7 năm tù",
+            "Từ 7 đến 15 năm tù",
+          ],
+          a: 1,
+          e: "Tội phạm ÍT NGHIÊM TRỌNG: mức phạt cao nhất ≤ 3 năm tù, phạt tiền hoặc cải tạo không giam giữ.",
+        },
+        {
+          q: "Phòng vệ chính đáng vượt quá giới hạn xử lý thế nào?",
+          o: [
+            "Không bị xử lý gì vì đã phòng vệ",
+            "Vẫn phải chịu trách nhiệm hình sự",
+            "Chỉ bị xử phạt hành chính",
+            "Được miễn trách nhiệm hoàn toàn",
+          ],
+          a: 1,
+          e: "Vượt quá PVCD là hành vi chống trả RÕ RÀNG QUÁ MỨC CẦN THIẾT. Người có hành vi này VẪN phải chịu TNHS theo BLHS.",
+        },
+        {
+          q: "Theo BLLĐ 2019, thời gian thử việc tối đa với chức danh cần trình độ cao đẳng trở lên là?",
+          o: ["30 ngày", "45 ngày", "60 ngày", "90 ngày"],
+          a: 2,
+          e: "Trình độ chuyên môn kỹ thuật từ CĐ trở lên: Thử việc tối đa 60 ngày. Trung cấp nghề/CNKT: 30 ngày. Công việc khác: 6 ngày làm việc.",
+        },
+        {
+          q: "Tiền lương làm thêm vào ngày lễ là bao nhiêu phần trăm so với lương bình thường?",
+          o: ["150%", "200%", "300%", "Tùy thỏa thuận"],
+          a: 2,
+          e: "Ngày nghỉ lễ: ≥ 300% (chưa kể tiền lương ngày lễ nếu được hưởng). Ngày thường: 150%. Nghỉ hằng tuần: 200%.",
+        },
+        {
+          q: "Mức phạt tiền tối đa với CÁ NHÂN vi phạm hành chính là bao nhiêu?",
+          o: ["500 triệu đồng", "1 tỷ đồng", "2 tỷ đồng", "5 tỷ đồng"],
+          a: 1,
+          e: "Cá nhân: tối đa 1.000.000.000 đồng (1 tỷ). Tổ chức: tối đa 2.000.000.000 đồng (2 tỷ) = 2 lần mức của cá nhân.",
+        },
+        {
+          q: "Công ty Cổ phần cần tối thiểu bao nhiêu cổ đông để thành lập?",
+          o: ["2 cổ đông", "3 cổ đông", "5 cổ đông", "10 cổ đông"],
+          a: 1,
+          e: "CTCP cần tối thiểu 3 cổ đông và không giới hạn số lượng tối đa. (Khác với TNHH 2TV+: 2-50 thành viên).",
+        },
+        {
+          q: "Hợp tác xã cần ít nhất bao nhiêu thành viên để thành lập?",
+          o: ["4 thành viên", "5 thành viên", "7 thành viên", "10 thành viên"],
+          a: 2,
+          e: "HTX: ≥ 7 thành viên. Liên hiệp HTX: ≥ 4 HTX. Cả HTX và Liên hiệp HTX đều có tư cách pháp nhân.",
+        },
+        {
+          q: "Khi doanh nghiệp bị phá sản, khoản nào được ưu tiên thanh toán TRƯỚC TIÊN?",
+          o: [
+            "Thuế và nợ Nhà nước",
+            "Nợ lương người lao động",
+            "Phí phá sản",
+            "Nợ không có bảo đảm của chủ nợ",
+          ],
+          a: 2,
+          e: "Thứ tự: (1) Phí phá sản; (2) Nợ lương, BHXH, quyền lợi NLĐ; (3) Nợ không có bảo đảm. Lưu ý: nợ có bảo đảm được TT từ TS bảo đảm trước khi phân chia chung.",
+        },
+      ];
+
+      // ─── STATE ────────────────────────────────────────────────────────────────
+      let checkedCards = JSON.parse(
+        localStorage.getItem("pldc_checked") || "[]",
+      );
+      let quizAnswers = [];
+      let quizStarted = false;
+
+      // ─── INIT ─────────────────────────────────────────────────────────────────
+      document.addEventListener("DOMContentLoaded", () => {
+        checkedCards.forEach((id) => {
+          const card = document.getElementById(id);
+          if (card) card.classList.add("checked");
+        });
+        updateProgress();
+      });
+
+      // ─── SECTION SWITCH ───────────────────────────────────────────────────────
+      function showSection(name) {
+        document
+          .querySelectorAll(".section")
+          .forEach((s) => s.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("section-" + name).classList.add("active");
+        const tabs = document.querySelectorAll(".tab-btn");
+        const map = {
+          overview: 0,
+          ch1: 1,
+          ch2: 2,
+          ch3: 3,
+          ch4: 4,
+          ch5: 5,
+          ch6: 6,
+          ch7: 7,
+          ch8: 8,
+          ch9: 9,
+          quiz: 10,
+        };
+        if (map[name] !== undefined) tabs[map[name]].classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // ─── CLUSTER TOGGLE ───────────────────────────────────────────────────────
+      function toggleCluster(header) {
+        header.classList.toggle("open");
+        const body = header.nextElementSibling;
+        body.classList.toggle("open");
+      }
+
+      // ─── CARD TOGGLE (expand detail) ──────────────────────────────────────────
+      function toggleCard(id) {
+        const detail = document.getElementById("detail-" + id);
+        if (detail) detail.classList.toggle("open");
+      }
+
+      function expandCard(e, id) {
+        e.stopPropagation();
+        toggleCard(id);
+      }
+
+      // ─── CARD CHECK ───────────────────────────────────────────────────────────
+      function checkCard(e, id) {
+        e.stopPropagation();
+        const card = document.getElementById(id);
+        card.classList.toggle("checked");
+        if (card.classList.contains("checked")) {
+          if (!checkedCards.includes(id)) checkedCards.push(id);
+        } else {
+          checkedCards = checkedCards.filter((x) => x !== id);
+        }
+        localStorage.setItem("pldc_checked", JSON.stringify(checkedCards));
+        updateProgress();
+      }
+
+      // ─── PROGRESS ─────────────────────────────────────────────────────────────
+      function updateProgress() {
+        const total = document.querySelectorAll(".card").length;
+        const done = checkedCards.length;
+        document.getElementById("prog-text").textContent = done + " / " + total;
+        document.getElementById("prog-bar").style.width =
+          (total ? (done / total) * 100 : 0) + "%";
+      }
+
+      function resetAll() {
+        checkedCards = [];
+        localStorage.removeItem("pldc_checked");
+        document
+          .querySelectorAll(".card")
+          .forEach((c) => c.classList.remove("checked"));
+        updateProgress();
+      }
+
+      // ─── SEARCH ───────────────────────────────────────────────────────────────
+      function filterCards(input, section) {
+        const q = input.value.toLowerCase().trim();
+        const cards = document.querySelectorAll(`#section-${section} .card`);
+        cards.forEach((card) => {
+          const text = card.textContent.toLowerCase();
+          card.style.display = !q || text.includes(q) ? "" : "none";
+        });
+      }
+
+      // ─── QUIZ ─────────────────────────────────────────────────────────────────
+      function startQuiz() {
+        quizAnswers = new Array(quizData.length).fill(null);
+        const container = document.getElementById("quiz-container");
+        document.getElementById("quiz-score").classList.remove("show");
+        container.innerHTML = "";
+        container.classList.add("active");
+
+        quizData.forEach((item, i) => {
+          const div = document.createElement("div");
+          div.className = "quiz-q";
+          div.id = "qq-" + i;
+          div.innerHTML = `
+      <div class="quiz-num">Câu ${i + 1} / ${quizData.length}</div>
+      <div class="quiz-question">${item.q}</div>
+      <div class="quiz-options">
+        ${item.o
+          .map(
+            (
+              opt,
+              j,
+            ) => `<button class="quiz-opt" onclick="answerQuiz(${i},${j})" id="qopt-${i}-${j}">
+          <strong>${String.fromCharCode(65 + j)}.</strong> ${opt}
+        </button>`,
+          )
+          .join("")}
+      </div>
+      <div class="quiz-explain" id="qexp-${i}">💡 ${item.e}</div>
+    `;
+          container.appendChild(div);
+        });
+
+        const submitBtn = document.createElement("div");
+        submitBtn.style.cssText = "text-align:center;padding:1.5rem 0;";
+        submitBtn.innerHTML = `<button class="btn-quiz" onclick="submitQuiz()">📊 Xem kết quả</button>`;
+        container.appendChild(submitBtn);
+      }
+
+      function answerQuiz(qi, oi) {
+        if (quizAnswers[qi] !== null) return;
+        quizAnswers[qi] = oi;
+        const correct = quizData[qi].a;
+        document
+          .getElementById(`qopt-${qi}-${oi}`)
+          .classList.add(oi === correct ? "correct" : "wrong");
+        if (oi !== correct)
+          document
+            .getElementById(`qopt-${qi}-${correct}`)
+            .classList.add("correct");
+        document
+          .querySelectorAll(`#qq-${qi} .quiz-opt`)
+          .forEach((b) => (b.disabled = true));
+        document.getElementById(`qexp-${qi}`).classList.add("show");
+      }
+
+      function submitQuiz() {
+        const total = quizData.length;
+        const correct = quizAnswers.filter(
+          (a, i) => a === quizData[i].a,
+        ).length;
+        const pct = Math.round((correct / total) * 100);
+        const scoreDiv = document.getElementById("quiz-score");
+        let grade =
+          pct >= 80
+            ? "🏆 Xuất sắc!"
+            : pct >= 60
+              ? "👍 Tốt"
+              : pct >= 40
+                ? "📚 Cần ôn thêm"
+                : "⚠️ Cần học lại";
+        scoreDiv.innerHTML = `
+    <div class="score-num">${correct}/${total}</div>
+    <div class="score-label">${pct}% — ${grade}</div>
+    <div style="margin-top:1.2rem;">
+      <button class="btn-quiz" onclick="startQuiz()" style="margin-right:0.5rem;">🔄 Làm lại</button>
+    </div>
+  `;
+        scoreDiv.classList.add("show");
+        scoreDiv.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
